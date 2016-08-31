@@ -1,10 +1,17 @@
 {{!< default}}
 
 <header role="banner">
-    <div class="wrap">
+    {{!-- <div class="wrap">
         <h1><a href="{{@blog.url}}">{{@blog.title}}</a></h1>
         <hr>
-    </div>
+    </div> --}}
+    <ul class="tags">
+      <li ><a href="/tag/activity" style = 'color: #fff;background: #0082ff'>活动沙龙</a></li>
+      <li ><a href="/tag/product" style = 'color: #3561c7; border-color: #3561c7;'>产品动态</a></li>
+      <li ><a href="/tag/media-report" style = 'color: #7039ba; border-color: #7039ba;'>媒体报道</a></li>
+      <li ><a href="/tag/user-story" style = 'color: #dabf1b; border-color: #dabf1b;'>用户故事</a></li>
+
+    </ul>
 </header>
 
 {{> "loop"}}

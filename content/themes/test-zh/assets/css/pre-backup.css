@@ -1,3 +1,9 @@
+/*
+* @Author: Jiang Guoxi
+* @Date:   2016-08-31 17:12:09
+* @Last Modified by:   Jiang Guoxi
+* @Last Modified time: 2016-08-31 17:12:14
+*/
 /* Link colour */
 a {
     color: #d35c5c;
@@ -6,7 +12,7 @@ a {
 /* Border at the top of the page */
 body>header,
 body.noimage {
-    /*border-color: #d35c5c;*/
+    border-color: #d35c5c;
 }
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
@@ -365,10 +371,9 @@ body>header h1 a {
     color: #21272d
 }
 body.noimage {
-    border: 0;
-/*    border-top-width: 4px;
+    border-top-width: 4px;
     border-top-style: solid;
-*/}
+}
 
 #feature_image {
     position: relative;
@@ -755,7 +760,7 @@ article>menu #btn_comment span {
 article.image {
     margin-top: 60px
 }
-/*body.user>header {
+body.user>header {
     position: relative;
     margin-bottom: 80px
 }
@@ -776,7 +781,7 @@ body.user>header h1 {
 }
 body.user>header hr {
     margin: 0 25%
-}*/
+}
 body.user article {
     position: relative;
     text-align: center;
@@ -1026,8 +1031,10 @@ body>a.btn.nav.prev span {
 }
 body>a.btn.nav.loading {
     color: transparent
-}/*
+}
 body>footer, .post-footer {
+    position: relative;
+    border-top: 1px solid #ededee;
     padding: 50px 0;
     -webkit-text-size-adjust: none;
     text-rendering: optimizeLegibility
@@ -1146,7 +1153,7 @@ body>footer #user_bio .inner, .post-footer #user_bio .inner {
     padding-left: 20px;
     line-height: 1.6em;
     color: #a4adb6
-}*/
+}
 #blog_badge {
     position: absolute;
     display: block;
@@ -1668,8 +1675,6 @@ body.touch.user article .readmore {
 
 body > .header {
     position: fixed;
-    top: 0;
-    z-index: 10000;
     width: 100%;
     background:#ffffff;
     box-shadow:0px 2px 2px 0px rgba(226,225,225,0.50);
@@ -1706,67 +1711,12 @@ body > .header > .logo h3 + i {
 body > .header > .log-reg {
     float: right;
 }
-body > .header > .log-reg a {
-    color: #fff;
-    border: 1px solid #000000;
-    border-radius:4px;
-    color: #000;
-    padding: 6px 17px;
-    cursor: pointer;
-    -webkit-transition: all ease-out .2s;
-    -moz-transition: all ease-out .2s;
-    transition: all ease-out .2s;
-}
-body > .header > .log-reg a:hover {
-    opacity: .8;
-}
-body > .header > .log-reg a.register {
-    background:#0082ff;
-    color: #fff;
-    border-color: #0082ff;
-    margin-left: 14px;
-    /*background:*/
-}
 body > .header > .nav {
-    float: right;
-    margin-right: 47px;
     /*color: #fff;*/
 }
 body > .header > .nav > li {
     float: left;
-
-}
-body > .header > .nav > li + li {
-    margin-left:21px;
 }
 body > .header > .nav > li a {
     color: #000;
-}
-body > header {
-    /*display: inline-block;*/
-    margin-top: 88px;
-    text-align: center;
-    /*padding: 0 11.6%;*/
-}
-body > header > .tags {
-    display: inline-block;
-    font-size: 0;
-}
-body > header > .tags li {
-    float: left;
-    /*background:#0082ff;*/
-
-}
-body > header > .tags li > a {
-    color: inherit;
-    border-radius:100px;
-    width:150px;
-    height:45px;
-    line-height: 45px;
-    font-size: 16px;
-    border: 1px solid #0082ff;
-    display: inline-block;
-}
-body > header> .tags li + li {
-    margin-left: 59px;
 }
