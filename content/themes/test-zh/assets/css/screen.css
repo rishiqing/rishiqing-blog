@@ -1211,6 +1211,37 @@ body>.no-posts [data-icon]:before {
     font-size: 130px;
     color: #e8e8e9
 }
+.navigator {
+    /*float: right;*/
+    position: fixed;
+    right: 100px;
+    top: 30px;
+    z-index: 10000;
+}
+.navigator > ul {
+    overflow: hidden;
+    margin: 10px;
+}
+.navigator:before {
+    content: '';
+    display: table;
+    clear:both;
+}
+.navigator li {
+    float: left;
+}
+.navigator li:hover a {
+    color: #f66;
+}
+.navigator li a {
+    color: #333;
+    font-size: 24px;
+    line-height: 1.7;
+}
+
+.navigator li + li {
+    margin-left: 10px;
+}
 #share_modal {
     display: none;
     position: fixed;

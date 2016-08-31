@@ -12,7 +12,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+    <link rel="shortcut icon" href="{{asset "logo.png"}}">
 
     {{! Styles'n'Scripts }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
@@ -21,7 +21,13 @@
     {{ghost_head}}
 </head>
 <body class="{{body_class}} {{#is 'index, tag, author'}}user{{/is}} {{#is 'post'}}{{#unless post.image}}noimage{{/unless}}{{/is}}">
-
+    <nav class="navigator">
+        <ul>
+            <li><a href="/tag/Person">Person</a></li>
+            <li><a href="/tag/test">test</a></li>
+            <li><a href="/tag/company">company</a></li>
+        </ul>
+    </nav>
     {{! Everything else gets inserted here }}
     {{{body}}}
 
@@ -37,7 +43,6 @@
          <section class="poweredby">Proudly published with <a href="https://ghost.org">Ghost</a> &amp; <a href="http://www.ghostchina.com">GhostChina</a></section>
     </footer>
     --}}
-    <script src = '//apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js'></script>
     <script>
 
         {{#is 'post'}}
@@ -89,6 +94,8 @@
     {{ghost_foot}}
 
     {{#is 'post'}}
+        <script src = '//apps.bdimg.com/libs/jquery/1.6.4/jquery.min.js'></script>
+
         <script>
             $(function(){
                 var share_modal = $("#share_modal"),
