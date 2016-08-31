@@ -55,7 +55,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     font-style: normal
 }
 
-body {
+body, p {
     font-family: PingFang, "Helvetica Neue", Helvetica, "Hiragino Sans GB", STHeitiSC-Light, SimHei, "Microsoft YaHei", "\\5FAEÈíÑÅºÚ", Arial, sans-serif;
 }
 body .btn, body>header h1, body article header h1, body>footer .details h4, body .post-footer .details h4, body #share_modal header a.close, body.user article.feature h1 a {
@@ -811,9 +811,12 @@ body.user article .image-holder {
     border-radius: 3px
 }
 body.user article .image-holder .inner {
-    display: block;
-    width: 100%;
-    height: 100%;
+    /*display: block;*/
+    /*width: 100%;*/
+    /*height: 100%;*/
+    width: 242px;
+    height: 160px;
+    display: inline-block;
     background-color: transparent;
     background-repeat: no-repeat;
     background-position: center center;
@@ -1769,4 +1772,122 @@ body > header > .tags li > a {
 }
 body > header> .tags li + li {
     margin-left: 59px;
+}
+
+div.article-wrap {
+    text-align: center;
+}
+ul.article-list {
+    font-size: 0;
+    overflow: hidden;
+    display: inline-block;
+    margin-top: 35px;
+    margin-bottom: 100px;
+}
+ul.article-list li {
+    font-size:12px;
+    background:#ffffff;
+    border:1px solid rgba(0,130,255,0.23);
+    box-shadow:0px 3px 3px 0px rgba(0,130,255,0.23);
+    width:261px;
+    height:329px;
+    float: left;
+}
+ul.article-list li + li {
+    margin-left: 31px;
+}
+ul.article-list li article header {
+    margin-bottom: 0;
+}
+ul.article-list li article header h1 a {
+    font-size: 16px;
+    color: #000;
+    font-weight: normal;
+}
+ul.article-list li article .text p {
+    color: #9f9f9f;
+    font-size: 12px;
+}
+ul.article-list li article {
+    margin-top: 0;
+}
+body.user ul.article-list li article .image-holder {
+    display: inline-block;
+    height: auto;
+    /*width: */
+}
+
+.rows-7{
+  height: 232px;
+  overflow: hidden;
+  padding-top: 35px;
+  /*background: #0095ff;*/
+  padding-bottom: 40px;
+  background-color: rgb(2, 158, 227); /* IE µÍ°æ±¾ÏÂ»áÊ¹ÓÃÕâ¸ö */
+  background-image:linear-gradient(-180deg, #0082ff 0%, #039CE0 100%);
+  background-image:-webkit-linear-gradient(-90deg, #0082ff 0%, #039CE0 100%);
+  background-image:-ms-linear-gradient(-90deg, #0082ff 0%, #039CE0 100%);
+  border: 0;
+  font-size: 0;
+}
+.rows-7 {
+  box-sizing: content-box!important;
+  margin-left: -5%;
+}
+.rows-7 h4{
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 19px;
+}
+.rows-7 h4,
+.rows-7 ul {
+  /*padding: */
+}
+
+.rows-7 > div {
+  width: 1024px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.rows-7 > div > div {
+  width: 25%;
+  display: inline-block;
+  text-align: left;
+  float: left;
+  box-sizing: border-box;
+  padding-left: 11%;
+}
+.rows-7 ul {
+
+}
+.rows-7 ul li {
+  font-size: 14px;
+}
+.rows-7 li + li {
+  margin-top: 15px;
+}
+.rows-7 a, .rows-7 span {
+  color: rgba(255, 255, 255, .85);
+}
+.footer{
+    text-align: center;
+    background: #006bc0;
+  margin-top: -40px;
+  position: relative;
+  height: 40px;
+  line-height: 40px;
+}
+.footer .caption {
+  /*background-color: rgb(2, 158, 227);*/
+  background: #0095ff;
+  color: #f3e2e2;
+  font-size: 12px;
+  padding: 20px;
+}
+.footer span{
+    font-size: 12px;
+    line-height: 36px;
+  color: #66A4D6;
+    color: rgba(255,255,255,.37);
+    #color: #66A4D6;
 }
