@@ -1830,6 +1830,9 @@ ul.article-list li:nth-child(3n + 1) {
 /*ul.article-list li + li {
     margin-left: 31px;
 }*/
+ul.article-list li article {
+    padding: 0;
+}
 ul.article-list li article header {
     margin-bottom: 0;
 }
@@ -1968,4 +1971,8 @@ body > article {
 /* 前一篇 按钮 */
 #post_nav #post_next span {
     margin-top: 4px;
+}
+/* 上一页 按钮 */
+body>a.btn.nav.prev span {
+    margin-top: 3px;
 }
