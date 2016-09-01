@@ -492,6 +492,7 @@ var _              = require('lodash'),
                 }
             },
 
+
             // ### grunt-update-submodules
             // Grunt task to update git submodules
             update_submodules: {
