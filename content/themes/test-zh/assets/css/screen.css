@@ -1937,24 +1937,68 @@ body.user ul.article-list li article .image-holder {
     #color: #66A4D6;
 }
 .banner-bg {
-    background: url('../banner.png');
-    width: 1024px;
+    /*background: url('../banner.png');*/
+    /*width: 1024px;*/
+    width: 100%;
     height: 476px;
     margin: 0 auto;
-    margin-top: 62px;
+    margin-top: 61px;
     overflow: hidden;
+    position: relative;
+    z-index: 1;
 }
-.banner-bg > h2 {
-    text-align: left;
-    margin-top: 167px;
-    margin-left: 120px;
-    font-size: 32px;
+.banner-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
 }
-.banner-bg > h2 + p {
+.banner-bg > img {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+}
+.banner-bg > img.left {
+    left: 0;
+}
+.banner-bg > img.right {
+    right: 0;
+    z-index: -1;
+}
+.banner-bg > .wrap {
+    width: 911px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 63px;
+}
+.banner-bg > .wrap > img {
+    position: absolute;
+    left: -32px;
+    top: -18px;
+}
+
+
+
+.banner-bg > div >  h2 + p {
     text-align: left;
-    margin-left: 126px;
+    /*margin-left: 126px;*/
     margin-top: 16px;
     color: #959595;
+}
+.banner-bg > div >  h2,
+.banner-bg > div >  p {
+    width: 911px;
+    margin: 0 auto;
+    position: relative;
+}
+.banner-bg > div >  h2 {
+    text-align: left;
+    font-size: 32px;
+    margin-top: 176px;
 }
 #feature_image,
 body > article {
