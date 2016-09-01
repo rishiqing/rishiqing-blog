@@ -1770,6 +1770,32 @@ body > header > .tags li > a {
     border: 1px solid #0082ff;
     display: inline-block;
 }
+body > header > .tags li > a.activity {
+    color: #0082ff;border-color: #0082ff;
+}
+body.tag-activity > header > .tags li > a.activity {
+    color: #fff;background: #0082ff;
+}
+body > header > .tags li > a.product {
+    color: #3561c7; border-color: #3561c7;
+}
+body.tag-product > header > .tags li > a.product {
+    color: #fff;background: #3561c7;
+}
+body > header > .tags li > a.media-report {
+    color: #7039ba; border-color: #7039ba;
+}
+body.tag-media-report > header > .tags li > a.media-report {
+    color: #fff;background: #7039ba;
+}
+body > header > .tags li > a.user-story {
+    color: #dabf1b; border-color: #dabf1b;;
+}
+body.tag-user-story > header > .tags li > a.user-story {
+    color: #fff;background: #dabf1b;
+}
+
+
 body > header> .tags li + li {
     margin-left: 59px;
 }
@@ -1783,8 +1809,10 @@ ul.article-list {
     display: inline-block;
     margin-top: 35px;
     margin-bottom: 100px;
+    width: 911px;
 }
 ul.article-list li {
+    padding: 10px;
     font-size:12px;
     background:#ffffff;
     border:1px solid rgba(0,130,255,0.23);
@@ -1798,6 +1826,10 @@ ul.article-list li + li {
 }
 ul.article-list li article header {
     margin-bottom: 0;
+}
+ul.article-list li article.featured > header,
+ul.article-list li article > div.text {
+    padding: 0;
 }
 ul.article-list li article header h1 a {
     font-size: 16px;
@@ -1890,4 +1922,24 @@ body.user ul.article-list li article .image-holder {
   color: #66A4D6;
     color: rgba(255,255,255,.37);
     #color: #66A4D6;
+}
+.banner-bg {
+    background: url('../banner.png');
+    width: 1024px;
+    height: 476px;
+    margin: 0 auto;
+    margin-top: 62px;
+    overflow: hidden;
+}
+.banner-bg > h2 {
+    text-align: left;
+    margin-top: 167px;
+    margin-left: 120px;
+    font-size: 32px;
+}
+.banner-bg > h2 + p {
+    text-align: left;
+    margin-left: 126px;
+    margin-top: 16px;
+    color: #959595;
 }

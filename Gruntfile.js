@@ -5,6 +5,7 @@
 // **Usage instructions:** can be found in the [Custom Tasks](#custom%20tasks) section or by running `grunt --help`.
 //
 // **Debug tip:** If you have any problems with any Grunt tasks, try running them with the `--verbose` command
+
 var _              = require('lodash'),
     chalk          = require('chalk'),
     fs             = require('fs-extra'),
@@ -41,7 +42,7 @@ var _              = require('lodash'),
     fullGlob = (function () {
         var packagejson = JSON.parse(fs.readFileSync('npm-shrinkwrap.json', {encoding: 'utf8'}));
         var pkgs = _.keys(packagejson.dependencies);
-        
+
         return pkgs.map(function (package) {
             return 'node_modules/' + package + '/**';
         }).concat(['!node_modules/**/test/**']); //remove unsued files
