@@ -1807,9 +1807,10 @@ ul.article-list {
     font-size: 0;
     overflow: hidden;
     display: inline-block;
-    margin-top: 35px;
+    /*margin-top: 35px;*/
     margin-bottom: 100px;
     width: 911px;
+    padding-bottom: 10px;
 }
 ul.article-list li {
     padding: 10px;
@@ -1820,10 +1821,15 @@ ul.article-list li {
     width:261px;
     height:329px;
     float: left;
-}
-ul.article-list li + li {
     margin-left: 31px;
+    margin-top: 35px;
 }
+ul.article-list li:nth-child(3n + 1) {
+    margin-left: 0;
+}
+/*ul.article-list li + li {
+    margin-left: 31px;
+}*/
 ul.article-list li article header {
     margin-bottom: 0;
 }
@@ -1831,10 +1837,14 @@ ul.article-list li article.featured > header,
 ul.article-list li article > div.text {
     padding: 0;
 }
+ul.article-list li article header h1 {
+    font-size: 0;
+}
 ul.article-list li article header h1 a {
     font-size: 16px;
     color: #000;
     font-weight: normal;
+    line-height: 1.4;
 }
 ul.article-list li article .text p {
     color: #9f9f9f;
@@ -1942,4 +1952,20 @@ body.user ul.article-list li article .image-holder {
     margin-left: 126px;
     margin-top: 16px;
     color: #959595;
+}
+#feature_image,
+body > article {
+    width: 1024px;
+    margin: 0 auto;
+}
+body > article {
+    padding-bottom: 100px;
+}
+/* 返回主页按钮 */
+#home_link {
+    vertical-align: middle;
+}
+/* 前一篇 按钮 */
+#post_nav #post_next span {
+    margin-top: 4px;
 }

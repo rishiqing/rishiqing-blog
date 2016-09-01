@@ -2,62 +2,22 @@
 
 {{#post}}
     {{> "post-banner"}}
-    {{#if image}}
-        <div id="feature_image">
-            <div class="inner" style="background-image: url('{{image}}')">
-                <img src="{{image}}">
-            </div>
-        </div>
-    {{/if}}
-
     <article role="main" class="{{#if image}}image{{/if}}">
         <header>
             <a href="{{@blog.url}}" id="home_link">«</a>
-            <div class="meta"><time datetime="{{date format='YYYY-MM-DD'}}"><a href="{{url}}">{{date format="YYYY年MM月DD日"}}</a></time> <span class="count" id="js-reading-time"></span></div>
-            <h1>{{title}}</h1>
+            <div class="meta"><time datetime="{{date format='YYYY-MM-DD'}}"><a href="{{url}}">{{date format="YYYY年MM月DD日"}}</a></time></div>
         </header>
 
         <div class="text" id="js-post-content">
             {{content}}
         </div>
 
-        <menu>
+        {{!-- <menu>
             <a href="" id="btn_share" class="btn" title="分享">
                 <span aria-hidden="true" data-icon="S"></span>
                 <strong>分享</strong>
             </a>
-        </menu>
-
-
-    {{#author}}
-        <footer class="post-footer" role="contentinfo">
-
-            <div class="vcard">
-                {{#if image}}
-                <a href="{{url}}" class="photo">
-                    <span style="background-image: url('{{image}}');">
-                        <img src="{{image}}" alt="{{name}}">
-                    </span>
-                </a>
-                {{/if}}
-
-                <div class="details">
-                    <h4><a href="{{url}}" class="url n">{{name}}</a></h4>
-                    {{#if location}}{{location}}<br>{{/if}}
-                    {{#if website}}<a href="{{website}}" class="js-remove-domain-schema">{{website}}</a>{{/if}}
-                </div>
-            </div>
-
-            <div id="user_bio">
-                <div class="inner">
-                    {{!-- TODO: Parse HTML for links --}}
-                    {{bio}}
-                </div>
-            </div>
-
-        </footer>
-    {{/author}}
-
+        </menu> --}}
     </article>
 
     <div id="share_modal">

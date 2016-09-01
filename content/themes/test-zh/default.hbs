@@ -77,16 +77,7 @@
                 }
                 return ret;
             }
-            function reading_time () {
-                var post_content = document.getElementById('js-post-content');
-                if (post_content) {
-                    var words = get_text(post_content),
-                        count = words.split(/\s+/).length,
-                        read_time = Math.ceil((count / 150)),
-                        read_time_node = document.createTextNode(read_time + ' min read');
-                    document.getElementById('js-reading-time').appendChild(read_time_node);
-                }
-            }
+
         {{/is}}
 
         function no_schema_links () {
@@ -103,10 +94,6 @@
 
         window.onload = function () {
             no_schema_links();
-
-            {{#is 'post'}}
-            reading_time();
-            {{/is}}
         }
     </script>
 
