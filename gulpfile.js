@@ -32,16 +32,16 @@ var logins = [
   return path.join(THEME_ASSETS_PATH, item);
 });
 var allJs = libs.concat(logins);
-console.log(allJs)
+// console.log(allJs)
 // var sourceFolder = ['js', 'css','scss'].map(function (item) {
 //   return
 // });
-var sourceFolder = {
-  js: path.join(THEME_ASSETS_PATH, './js/'),
-  css: path.join(THEME_ASSETS_PATH, './css/'),
-  scss: path.join(THEME_ASSETS_PATH, './scss/')
-};
-// console.log(path.join(sourceFolder.scss, '/*.scss'));
+var _sourceFolders = 'js css scss'.split(' ');
+var sourceFolder = {};
+
+_sourceFolders.forEach(item => {
+  sourceFolder[item] = path.join(THEME_ASSETS_PATH, item + '/');
+});
 
 var dist = {
   lib: path.join(THEME_ASSETS_PATH, '/dist/js/libs.min.js'),
@@ -54,7 +54,7 @@ gulp.task('clean', function() {
   return del(['build']);
 });
 
-console.log(path.join(sourceFolder.scss, '/*.scss'))
+// console.log(path.join(sourceFolder.scss, '/*.scss'))
 gulp.task("scss", function () {
   scss(path.join(sourceFolder.scss, '/screen.scss'), {
     sourcemap: true
