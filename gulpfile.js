@@ -32,14 +32,10 @@ var logins = [
   return path.join(THEME_ASSETS_PATH, item);
 });
 var allJs = libs.concat(logins);
-// console.log(allJs)
-// var sourceFolder = ['js', 'css','scss'].map(function (item) {
-//   return
-// });
 var _sourceFolders = 'js css scss'.split(' ');
 var sourceFolder = {};
 
-_sourceFolders.forEach(item => {
+_sourceFolders.forEach(function (item) {
   sourceFolder[item] = path.join(THEME_ASSETS_PATH, item + '/');
 });
 
