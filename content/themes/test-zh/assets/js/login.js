@@ -39,12 +39,11 @@ $(function(){
 
 var Login =function(){
 
-    var BASE_URL = "/task";
+    // var BASE_URL = "/task";
     var APP_URL = '/app';
     var SYSTEM_MANAGER = '/systemManage'
     window.queryValue = '';
-    // var BASE_URL = "https://www.rishiqing.com/task";
-    // var BASE_URL = "https://www.rishiqing.com/task";
+    var BASE_URL = "https://www.rishiqing.com/task";
 
     var AUTH_ACTION  = "/login/authAjax";
 
