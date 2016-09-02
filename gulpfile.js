@@ -51,18 +51,18 @@ gulp.task('clean', function() {
 });
 
 // console.log(path.join(sourceFolder.scss, '/*.scss'))
-gulp.task("scss", function () {
-  scss(path.join(sourceFolder.scss, '/screen.scss'), {
-    sourcemap: true
-  })
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(sourceFolder.css));
-  // gulp.src(
-  //     path.join(sourceFolder.scss, '/*.scss')
-  // ).pipe(scss(
-  //     {"bundleExec": true}
-  // )).pipe(gulp.dest(sourceFolder.css));
-});
+// gulp.task("scss", function () {
+//   scss(path.join(sourceFolder.scss, '/screen.scss'), {
+//     sourcemap: true
+//   })
+//   .pipe(sourcemaps.write())
+//   .pipe(gulp.dest(sourceFolder.css));
+//   // gulp.src(
+//   //     path.join(sourceFolder.scss, '/*.scss')
+//   // ).pipe(scss(
+//   //     {"bundleExec": true}
+//   // )).pipe(gulp.dest(sourceFolder.css));
+// });
 
 gulp.task('scripts', ['clean'], function() {
   // Minify and copy all JavaScript (except vendor scripts)
@@ -91,4 +91,5 @@ gulp.task('watch', function() {
 });
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('default', ['watch', 'scripts', 'scss']);
+// gulp.task('default', ['watch', 'scripts', 'scss']);
+gulp.task('default', ['watch', 'scripts']);

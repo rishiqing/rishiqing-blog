@@ -80,7 +80,8 @@
 <div class="popup" style="display:none" id="invitedPeople">
     <p class="cross">×</p>
     <div class="image">
-        <img src="./images/loginDialog/emailIcon.png">
+        {{!-- <img src="{{./images/loginDialog/emailIcon.png}}"> --}}
+        <img src="{{asset "images/loginDialog/emailIcon.png" }}">
     </div>
     <p class="middleText">
         您被邀请加入<span class="bigBlue" id="teamName">北京测试团队</span>
@@ -167,7 +168,8 @@
 <div class="popup" style="display:none" id="choseOne">
     <p class="cross">×</p>
     <div class="image">
-        <img src="./images/loginDialog/emailIcon.png">
+        <img src="{{asset "images/loginDialog/emailIcon.png" }}">
+        {{!-- <img src="./images/loginDialog/emailIcon.png"> --}}
     </div>
     <p class="middleText">您被邀请加入
         <span class="bigBlue"  id="teamName"> 北京测试团队</span>
