@@ -1,23 +1,53 @@
 // var mozjpeg = require('imagemin-mozjpeg');
 var path = require('path');
 var THEME_ASSETS_PATH = path.join(__dirname, './content/themes/test-zh/assets');
-var libs = ['js/jquery/jquery-1.11.3.min.js', 'js/jquery/jquery.cookie.js', 'js/tipped.js', 'js/application.js'].map(function (item) {
+var libs = [
+  'js/jquery/jquery-1.11.3.min.js',
+  'js/jquery/jquery.cookie.js',
+  'js/tipped.js',
+  'js/application.js'
+].map(function (item) {
   return path.join(THEME_ASSETS_PATH, item);
 });
-var logins = ['js/loginDialog.js', 'js/login.js'].map(function (item) {
+
+var css = [
+  'loginDialog.css',
+  'screen.css'
+].map(function (item) {
+  return path.join(THEME_ASSETS_PATH, '/css/', item);
+});
+
+var logins = [
+  'js/loginDialog.js',
+  'js/login.js'
+].map(function (item) {
   return path.join(THEME_ASSETS_PATH, item);
 });
+
+var sourceFolder = {
+  js: path.join(THEME_ASSETS_PATH, './js/'),
+  css: path.join(THEME_ASSETS_PATH, './css/'),
+  scss: path.join(THEME_ASSETS_PATH, './scss/')
+};
+
 console.log(libs);
 console.log(logins);
+console.log(sourceFolder);
+console.log(css);
+var dist = {
+  lib: path.join(THEME_ASSETS_PATH, '/dist/js/libs.min.js'),
+  login: path.join(THEME_ASSETS_PATH, '/dist/js/login.min.js')
+};
+console.log(dist);
 module.exports = function (grunt) {
   // 项目配置
   grunt.initConfig({
-    pkg: grunt.file.readJSON('package.json'),
+    // pkg: grunt.file.readJSON('package.json'),
     uglify: {
       "my_target": {
         "files": {
-          './dist/js/lib.min.js': libs,
-          './dist/js/login.min.js': logins
+          './content/themes/test-zh/assets/dist/js/libs.min.js': libs,
+          './content/themes/test-zh/assets/dist/js/login.min.js': logins
         },
         options: {
           sourceMap: true
@@ -28,9 +58,9 @@ module.exports = function (grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: path.join(THEME_ASSETS_PATH, '/scss/'),
+          cwd: sourceFolder.scss,
           src: ['*.scss'],
-          dest: '../dist/css/',
+          dest: sourceFolder.css,
           ext: '.css'
         }]
       }
@@ -43,15 +73,15 @@ module.exports = function (grunt) {
       dynamic: {
         files: [{
           expand: true,
-          cwd: path.join(THEME_ASSETS_PATH, '/css/'),
+          cwd: sourceFolder.css,
           src: ['*.css'],
-          dest: '../dist/css'
+          dest: path.join(THEME_ASSETS_PATH, '/dist/blog.css')
         }]
       },
       target: {
         files: {
-          './dist/css/public.min.css': ['css/tipped.css', 'css/public.css', 'css/loginDialog.css'],
-          './dist/css/<%= pkg.file %>.css': ['css/<%= pkg.file %>.css']
+          './content/themes/test-zh/assets/dist/css/public.min.css': css/*,
+          './dist/css/<%= pkg.file %>.css': ['css/<%= pkg.file %>.css']*/
         }
       }
     },
@@ -72,7 +102,7 @@ module.exports = function (grunt) {
     },
     watch: {
       css: {
-        files: ['css/*.css'],
+        files: css,
         options: {
           livereload:true,
           debounceDelay: 500
@@ -80,7 +110,7 @@ module.exports = function (grunt) {
         tasks: ['compress']
       },
       js: {
-        files: ['js/*.js'],
+        files: [],
         options: {
           livereload:true,
           debounceDelay: 500
@@ -95,13 +125,6 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
   grunt.loadNpmTasks('grunt-contrib-sass');
-  // grunt.loadNpmTasks('grunt-contrib-htmlmin');
-  // 默认任务
   grunt.registerTask('build', ['uglify', 'cssmin', 'imagemin']);
   grunt.registerTask('compress', ['uglify', 'cssmin']);
-  // grunt.registerTask('compress', ['uglify', 'cssmin', 'imagemin']);
-  // grunt.registerTask('watch', ['watch']); // 这里不能重新注册任务， 不然的话就不能监视了→＿←
-  // grunt.event.on('watch', function (a, b) {
-  //   console.log(a, b);
-  // });
 };
