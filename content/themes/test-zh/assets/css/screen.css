@@ -1973,11 +1973,11 @@ body.user ul.article-list li article .image-holder {
     margin: 0 auto;
     position: relative;
     box-sizing: border-box;
-    padding-left: 63px;
+    padding-left: 92px;
 }
 .banner-bg > .wrap > img {
     position: absolute;
-    left: -32px;
+    left: -1px;
     top: -18px;
 }
 
@@ -1988,6 +1988,7 @@ body.user ul.article-list li article .image-holder {
     /*margin-left: 126px;*/
     margin-top: 16px;
     color: #959595;
+    padding-left: 5px;
 }
 .banner-bg > div >  h2,
 .banner-bg > div >  p {
