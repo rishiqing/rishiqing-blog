@@ -56,10 +56,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 
 body, p {
-    font-family: PingFang, "Helvetica Neue", Helvetica, "Hiragino Sans GB", STHeitiSC-Light, SimHei, "Microsoft YaHei", "\\5FAEÈíÑÅºÚ", Arial, sans-serif;
+    font-family: PingFang, "Helvetica Neue", Helvetica, "Hiragino Sans GB", STHeitiSC-Light, SimHei, "Microsoft YaHei", Arial, sans-serif;
 }
 body .btn, body>header h1, body article header h1, body>footer .details h4, body .post-footer .details h4, body #share_modal header a.close, body.user article.feature h1 a {
-    font-family: PingFang, "Helvetica Neue", Helvetica, "Hiragino Sans GB", STHeitiSC-Light, SimHei, "Microsoft YaHei", "\\5FAEÈíÑÅºÚ", Arial, sans-serif;
+    font-family: PingFang, "Helvetica Neue", Helvetica, "Hiragino Sans GB", STHeitiSC-Light, SimHei, "Microsoft YaHei", Arial, sans-serif;
 }
 body.serif {
     font-family: "Merriweather", "Georgia", "Times New Roman", serif
@@ -1868,7 +1868,7 @@ body.user ul.article-list li article .image-holder {
   padding-top: 35px;
   /*background: #0095ff;*/
   padding-bottom: 40px;
-  background-color: rgb(2, 158, 227); /* IE µÍ°æ±¾ÏÂ»áÊ¹ÓÃÕâ¸ö */
+  background-color: rgb(2, 158, 227); /* IE  */
   background-image:linear-gradient(-180deg, #0082ff 0%, #039CE0 100%);
   background-image:-webkit-linear-gradient(-90deg, #0082ff 0%, #039CE0 100%);
   background-image:-ms-linear-gradient(-90deg, #0082ff 0%, #039CE0 100%);
@@ -1973,11 +1973,11 @@ body.user ul.article-list li article .image-holder {
     margin: 0 auto;
     position: relative;
     box-sizing: border-box;
-    padding-left: 92px;
+    padding-left: 63px;
 }
 .banner-bg > .wrap > img {
     position: absolute;
-    left: -1px;
+    left: -32px;
     top: -18px;
 }
 
@@ -1988,7 +1988,6 @@ body.user ul.article-list li article .image-holder {
     /*margin-left: 126px;*/
     margin-top: 16px;
     color: #959595;
-    padding-left: 5px;
 }
 .banner-bg > div >  h2,
 .banner-bg > div >  p {
@@ -2009,15 +2008,12 @@ body > article {
 body > article {
     padding-bottom: 100px;
 }
-/* 返回主页按钮 */
 #home_link {
     vertical-align: middle;
 }
-/* 前一篇 按钮 */
 #post_nav #post_next span {
     margin-top: 4px;
 }
-/* 上一页 按钮 */
 body>a.btn.nav.prev span {
     margin-top: 3px;
 }
