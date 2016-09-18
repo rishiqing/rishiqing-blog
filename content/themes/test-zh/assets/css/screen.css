@@ -423,6 +423,7 @@ article time, article time a {
 }
 article>header {
     margin-bottom: 50px;
+    margin-top: 30px;
     text-rendering: optimizeLegibility
 }
 article>header h1 {
@@ -2007,7 +2008,10 @@ body > article {
     margin: 0 auto;
 }
 body > article {
+    padding: 0;
     padding-bottom: 100px;
+    width: 911px;
+    max-width: 911px;
 }
 /* 返回主页按钮 */
 #home_link {
