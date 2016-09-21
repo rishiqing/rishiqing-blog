@@ -423,6 +423,7 @@ article time, article time a {
 }
 article>header {
     margin-bottom: 50px;
+    margin-top: 30px;
     text-rendering: optimizeLegibility
 }
 article>header h1 {
@@ -2007,7 +2008,10 @@ body > article {
     margin: 0 auto;
 }
 body > article {
+    padding: 0;
     padding-bottom: 100px;
+    width: 911px;
+    max-width: 911px;
 }
 /* 返回主页按钮 */
 #home_link {
@@ -2020,4 +2024,40 @@ body > article {
 /* 上一页 按钮 */
 body>a.btn.nav.prev span {
     margin-top: 3px;
+}
+article .text {
+    font-family:PingFang, "Helvetica Neue", Helvetica, "Hiragino Sans GB", STHeitiSC-Light, SimHei, "Microsoft YaHei", "\\5FAEÈíÑÅºÚ", Arial, sans-serif;
+}
+article[role='main']  h1 {
+    font-size: 36px;
+    color: #333;
+}
+article[role='main']  h2 {
+    font-size: 18px;
+    color: #333;
+}
+article[role='main']  h3 {
+    font-size: 14px;
+    color: #000;
+}
+article[role='main']  h4 {
+    font-size: 12px;
+    color: #000;
+}
+article[role='main']  h2,
+article[role='main']  h3,
+article[role='main']  h4 {
+    font-weight: bold;
+}
+
+article[role='main']   p {
+    font-size: 16px;
+    line-height: 26px;
+    color: #333;
+}
+
+article[role='main']  blockquote {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
 }

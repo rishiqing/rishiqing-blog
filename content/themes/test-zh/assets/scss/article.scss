@@ -1,0 +1,33 @@
+/*
+* @Author: Jiang Guoxi
+* @Date:   2016-09-20 17:33:31
+* @Last Modified by:   Jiang Guoxi
+* @Last Modified time: 2016-09-20 17:35:34
+*/
+article[role='main'] {
+  h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  h2 {
+    font-size: 18px;
+    color: #333;
+  }
+  h3 {
+    font-size: 14px;
+    color: #000;
+  }
+  h4 {
+    font-size: 12px;
+    color: #000;
+  }
+  h2, h3, h4 {
+    font-weight: bold;
+  }
+  > p {
+    font-size: 16px;
+    line-height: 26px;
+    color: #333;
+  }
+
+}

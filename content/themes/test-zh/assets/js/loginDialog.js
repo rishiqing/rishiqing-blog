@@ -234,7 +234,8 @@ var LoginDialog = function(){
     // var REG = "/reg/register";
     var SYSTEM_MANAGER = '/systemManage'
     // var BASE_URL = "/task";
-    var BASE_URL = "https:www.rishiqing.com/task";
+    // var BASE_URL = "https:www.rishiqing.com/task";
+    var BASE_URL = "http://localhost:2369/task";
     // var APP_URL = '/app';
     var APP_URL = 'https://www.rishiqing.com/app';
     // var  BASE_URL = "http://192.168.3.137/task";
@@ -508,6 +509,9 @@ var LoginDialog = function(){
                       'X-Requested-With':'XMLHttpRequest'
                     },*/
                     success : function(data){
+                        console.info('登录成功。。。。。。。');
+                        console.info('fjasjdklf jfj dlasj fklsdjfklas djkljsdlfjdas jkl jklj');
+                        debugger;
                         //登录成功
                         if(data.success){
                             if(data.notCommonUser){//如果不是普通用户
@@ -522,7 +526,7 @@ var LoginDialog = function(){
                             if(data.errors&&data.errors.message){
                                 self.showErrorMsg(_$errMsgMiddle,data.errors.message+contactUs);
                             }else{
-                                self.goToSystem();
+                                // self.goToSystem();
                             }
                         }
                     },

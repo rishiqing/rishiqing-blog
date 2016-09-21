@@ -43,7 +43,8 @@ var Login =function(){
     var APP_URL = '/app';
     var SYSTEM_MANAGER = '/systemManage'
     window.queryValue = '';
-    var BASE_URL = "https://www.rishiqing.com/task";
+    // var BASE_URL = "https://www.rishiqing.com/task";
+    var BASE_URL = "http://localhost:2369/task";
 
     var AUTH_ACTION  = "/login/authAjax";
 
