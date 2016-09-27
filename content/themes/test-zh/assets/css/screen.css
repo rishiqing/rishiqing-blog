@@ -1982,7 +1982,8 @@ body.user ul.article-list li article .image-holder {
 .banner-bg > .wrap > img {
     position: absolute;
     left: -1px;
-    top: -18px;
+    /*top: -18px;*/
+    top: -2px;
 }
 
 
@@ -1990,20 +1991,23 @@ body.user ul.article-list li article .image-holder {
 .banner-bg > div >  h2 + p {
     text-align: left;
     /*margin-left: 126px;*/
-    margin-top: 16px;
     color: #959595;
     padding-left: 5px;
 }
 .banner-bg > div >  h2,
 .banner-bg > div >  p {
-    width: 911px;
-    margin: 0 auto;
+    width: 772px;
+    /*width: 911px;*/
+    /*margin: 0 auto;*/
     position: relative;
+    z-index: 12;
 }
 .banner-bg > div >  h2 {
     text-align: left;
     font-size: 32px;
-    margin-top: 176px;
+    line-height: 45px;
+    /*margin-top: 176px;*/
+    margin-top: 160px;
 }
 #feature_image,
 body > article {
@@ -2070,4 +2074,12 @@ article[role='main']  blockquote {
 body > article {
     width: 740px;
     max-width: 740px;
+}
+article .text ul li, article .text ol li, article .text dl li {
+    font-size: 14px;
+    color: #000;
+}
+.banner-bg > div >  h2 {
+    /*width: 800px;*/
+    /*line-height: 45px;*/
 }
