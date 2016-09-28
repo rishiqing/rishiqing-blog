@@ -2137,6 +2137,12 @@ article .text ul li, article .text ol li, article .text dl li {
     /*width: 800px;*/
     /*line-height: 45px;*/
 }
-body.home-template .article-wrap .article-list > li.tag-index {
+body.home-template .article-wrap .article-list > li {
     display: none;
+}
+body.home-template .article-wrap .article-list > li.tag-product,
+body.home-template .article-wrap .article-list > li.tag-activity,
+body.home-template .article-wrap .article-list > li.tag-media-report,
+body.home-template .article-wrap .article-list > li.tag-user-story {
+    display: inline-block;
 }
