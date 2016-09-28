@@ -70,9 +70,9 @@ function processQuery(query, slugParam) {
         query.options[name] = _.isString(option) ? option.replace(/%s/g, slugParam) : option;
     });
 
-    console.log(query)
-    console.log('============options==================');
-    console.log(query.options);
+    // console.log(query)
+    // console.log('============options==================');
+    // console.log(query.options);
     // Return a promise for the api query
     return api[query.resource][query.type](query.options);
 }
@@ -109,7 +109,9 @@ function fetchData(channelOptions) {
     return Promise.props(props).then(function formatResponse(results) {
         var response = _.cloneDeep(results.posts);
         delete results.posts;
-
+        console.log('==============================   Return ==========================');
+        console.log(results)
+        console.log(channelOptions);
         // process any remaining data
         if (!_.isEmpty(results)) {
             response.data = {};

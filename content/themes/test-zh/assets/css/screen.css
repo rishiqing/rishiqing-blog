@@ -1817,7 +1817,8 @@ ul.article-list li {
     /*padding: 10px;*/
     padding: 7px;
     width: 261px;
-    height: 329px;
+    /*height: 329px;*/
+    height: 350px;
     box-sizing: border-box;
 
     font-size:12px;
@@ -1879,13 +1880,14 @@ ul.article-list li article .wrapper-info {
 ul.article-list li article .text p {
     color: #9f9f9f;
     font-size: 12px;
+    text-align: justify;
 }
 ul.article-list li article {
     margin-top: 0;
 }
 ul.article-list li article.featured > footer,
 ul.article-list li article > footer {
-    margin-top: 10px;
+    margin-top: 34px;
     overflow: hidden;
     padding: 0;
 }
@@ -2134,4 +2136,7 @@ article .text ul li, article .text ol li, article .text dl li {
 .banner-bg > div >  h2 {
     /*width: 800px;*/
     /*line-height: 45px;*/
+}
+body.home-template .article-wrap .article-list > li.tag-index {
+    display: none;
 }

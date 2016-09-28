@@ -4,7 +4,8 @@
     {{> "post-banner"}}
     <article role="main" class="{{#if image}}image{{/if}}">
         <header>
-            <a href="{{@blog.url}}" id="home_link">«</a>
+            {{!-- <a href="{{@blog.url}}" id="home_link">«</a> --}}
+            <a href="/" id="home_link">«</a>
             <div class="meta"><time datetime="{{date format='YYYY-MM-DD'}}"><a href="{{url}}">{{date format="YYYY年MM月DD日"}}</a></time></div>
         </header>
 
