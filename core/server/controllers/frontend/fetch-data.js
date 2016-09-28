@@ -70,6 +70,9 @@ function processQuery(query, slugParam) {
         query.options[name] = _.isString(option) ? option.replace(/%s/g, slugParam) : option;
     });
 
+    console.log(query)
+    console.log('============options==================');
+    console.log(query.options);
     // Return a promise for the api query
     return api[query.resource][query.type](query.options);
 }
@@ -85,6 +88,8 @@ function processQuery(query, slugParam) {
  */
 function fetchData(channelOptions) {
     // @TODO improve this further
+    console.log('=====================================')
+    console.log(channelOptions)
     var pageOptions = channelOptions.isRSS ?
         {options: channelOptions.postOptions} : fetchPostsPerPage(channelOptions.postOptions),
         postQuery,
@@ -94,6 +99,9 @@ function fetchData(channelOptions) {
     postQuery = _.defaultsDeep({}, pageOptions, defaultPostQuery);
     props.posts = processQuery(postQuery, channelOptions.slugParam);
 
+    // if (channelOptions.name === 'index') {
+    //     query.isIndex = true;
+    // }
     _.each(channelOptions.data, function (query, name) {
         props[name] = processQuery(query, channelOptions.slugParam);
     });

@@ -51,6 +51,7 @@ paginationUtils = {
      * @param {options} options
      */
     addLimitAndOffset: function addLimitAndOffset(model, options) {
+        console.log('addLimitAndOffset');
         if (_.isNumber(options.limit)) {
             model
                 .query('limit', options.limit)

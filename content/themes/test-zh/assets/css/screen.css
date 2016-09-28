@@ -802,7 +802,7 @@ body.user article header h1 {
 }
 body.user article .image-holder {
     height: 300px;
-    margin: 0 auto 30px auto;
+    margin: 0 auto 10px auto;
     overflow: hidden;
     max-width: 680px;
     -webkit-border-radius: 3px;
@@ -895,8 +895,8 @@ body.user article .text {
     max-width: 680px
 }
 body.user article .text p {
-    display: inline;
-    line-height: 1.7em;
+    display: inline-block;
+    line-height: 20px;
     margin: 0 5px 0 0
 }
 body.user article .text pre, body.user article .text img, body.user article .text table, body.user article .text hr, body.user article .text iframe, body.user article .text object, body.user article .text audio, body.user article .text video, body.user article .text embed, body.user article .text h1, body.user article .text h2, body.user article .text h3, body.user article .text h4, body.user article .text h5, body.user article .text h6, body.user article .text div.gist {
@@ -1814,15 +1814,20 @@ ul.article-list {
     padding-bottom: 10px;
 }
 ul.article-list li {
-    padding: 10px;
+    /*padding: 10px;*/
+    padding: 7px;
+    width: 261px;
+    height: 329px;
+    box-sizing: border-box;
+
     font-size:12px;
     background:#ffffff;
     width:261px;
-    height:329px;
-    float: left;
+    display: inline-block;
     margin-left: 31px;
     margin-top: 35px;
     border: 1px solid rgba(0, 0, 0, .10);
+    overflow: hidden;
 }
 ul.article-list li:hover {
     border:1px solid rgba(0,130,255,0.23);
@@ -1840,18 +1845,36 @@ ul.article-list li article {
 ul.article-list li article header {
     margin-bottom: 0;
 }
-ul.article-list li article.featured > header,
-ul.article-list li article > div.text {
+ul.article-list li article.featured  header,
+ul.article-list li article  div.text {
     padding: 0;
 }
-ul.article-list li article header h1 {
-    font-size: 0;
+ul.article-list li article > div.text {
+    position: relative;
 }
-ul.article-list li article header h1 a {
+ul.article-list li article  div.text a {
+    color: #666;
+}
+ul.article-list li article  div.text a.readmore {
+    position: absolute;
+    bottom: 6px;
+    right: 10px;
+    display: none;
+}
+ul.article-list li article header h2 {
+    font-size: 0;
+    margin-bottom: 10px;
+}
+ul.article-list li article header h2 a {
     font-size: 16px;
-    color: #000;
+    color: #333;
     font-weight: normal;
     line-height: 1.4;
+}
+ul.article-list li article .wrapper-info {
+    padding: 0;
+    max-height: 112px;
+    overflow: hidden;
 }
 ul.article-list li article .text p {
     color: #9f9f9f;
@@ -1859,6 +1882,35 @@ ul.article-list li article .text p {
 }
 ul.article-list li article {
     margin-top: 0;
+}
+ul.article-list li article.featured > footer,
+ul.article-list li article > footer {
+    margin-top: 10px;
+    overflow: hidden;
+    padding: 0;
+}
+ul.article-list li article footer .time {
+    float: left;
+    color: #a3a3a3;
+}
+ul.article-list li article footer .tags {
+    float: right;
+    color: #000;
+}
+ul.article-list li article footer .tags a {
+    color: #000;
+}
+ul.article-list li article footer .tags a[href='/tag/product/']{
+    color:#3561c7;
+}
+ul.article-list li article footer .tags a[href='/tag/activity/']{
+    color:#0082ff;
+}
+ul.article-list li article footer .tags a[href='/tag/media-report/']{
+    color:#7039ba;
+}
+ul.article-list li article footer .tags a[href='/tag/user-story/']{
+    color:#dabf1b;
 }
 body.user ul.article-list li article .image-holder {
     display: inline-block;

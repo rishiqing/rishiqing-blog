@@ -274,6 +274,7 @@ ghostBookshelf.Model = ghostBookshelf.Model.extend({
      * @param {Object} options
      */
     findPage: function findPage(options) {
+        console.log('findPage =======================');
         options = options || {};
 
         var self = this,
