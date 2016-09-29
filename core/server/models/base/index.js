@@ -275,8 +275,8 @@ ghostBookshelf.Model = ghostBookshelf.Model.extend({
      */
     findPage: function findPage(options) {
         options = options || {};
-        console.log('findPage =======================');
-        console.log(options)
+        // console.log('findPage =======================');
+        // console.log(options)
         var self = this,
             itemCollection = this.forge(null, {context: options.context}),
             tableName      = _.result(this.prototype, 'tableName');
@@ -309,8 +309,8 @@ ghostBookshelf.Model = ghostBookshelf.Model.extend({
         } else {
             options.order = self.orderDefaultOptions();
         }
-        console.log('===========================  applyFilters ========================================');
-        console.log(options);
+        // console.log('===========================  applyFilters ========================================');
+        // console.log(options);
 
         return itemCollection.fetchPage(options).then(function formatResponse(response) {
             var data = {};

@@ -193,8 +193,8 @@ pagination = function pagination(bookshelf) {
                 console.log('COUNT', countPromise.toQuery());
             }
 
-            console.log('=============================pagenation--filter===============');
-            console.log(options);
+            // console.log('=============================pagenation--filter===============');
+            // console.log(options);
             // Setup the promise to do a fetch on our collection, running the specified query
             // @TODO: ensure option handling is done using an explicit pick elsewhere
             collectionPromise = self.fetchAll(_.omit(options, ['page', 'limit']));
