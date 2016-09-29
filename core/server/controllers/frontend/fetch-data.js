@@ -70,6 +70,9 @@ function processQuery(query, slugParam) {
         query.options[name] = _.isString(option) ? option.replace(/%s/g, slugParam) : option;
     });
 
+    // console.log(query)
+    // console.log('============options==================');
+    // console.log(query.options);
     // Return a promise for the api query
     return api[query.resource][query.type](query.options);
 }
@@ -85,6 +88,8 @@ function processQuery(query, slugParam) {
  */
 function fetchData(channelOptions) {
     // @TODO improve this further
+    console.log('=====================================')
+    console.log(channelOptions)
     var pageOptions = channelOptions.isRSS ?
         {options: channelOptions.postOptions} : fetchPostsPerPage(channelOptions.postOptions),
         postQuery,
@@ -92,6 +97,14 @@ function fetchData(channelOptions) {
 
     // All channels must have a posts query, use the default if not provided
     postQuery = _.defaultsDeep({}, pageOptions, defaultPostQuery);
+
+    // if (channelOptions.name === 'index') {
+    //     props.posts = config.database.knex.raw('select p.* from posts p left join posts_tags pt on p.id=pt.post_id where pt.tag_id<>9 or pt.id is null').then(function (response) {
+    //         return fn(response);
+    //     });
+    // } else {
+    //     props.posts = processQuery(postQuery, channelOptions.slugParam);
+    // }
     props.posts = processQuery(postQuery, channelOptions.slugParam);
 
     _.each(channelOptions.data, function (query, name) {
@@ -101,7 +114,9 @@ function fetchData(channelOptions) {
     return Promise.props(props).then(function formatResponse(results) {
         var response = _.cloneDeep(results.posts);
         delete results.posts;
-
+        console.log('==============================   Return ==========================');
+        console.log(results)
+        console.log(channelOptions);
         // process any remaining data
         if (!_.isEmpty(results)) {
             response.data = {};

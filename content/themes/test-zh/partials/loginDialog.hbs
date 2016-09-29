@@ -1,277 +1,201 @@
 <div class="mask" style="display:none"></div>
 
-<!--【注册界面】---------->
-<div class="popup" style="" id="pageRegister">
-    <p class="cross">×</p>
-    <p class="switcher">
-        <span class="switcherWillUse switcherLogin">登录</span>
-        <span class="switchDot">·</span>
-        <span class="switcherUsing">注册</span>
-    </p>
-    <form>
-        <div class="posR">
-            <ul class="searchResult"></ul>
-            <input id="regEmail" type="email" class="popContent emails" placeholder="邮箱/手机号">
-            <div class="errorDialog errorMsgId"></div><!--用户名处的错误提示框-->
-            <div class="errorDialog errorMsgMiddle"></div><!--用户名和密码中间的错误提示框-->
+<div class="popup">
+    <i class="cross">X</i>
+    <!--【注册/登录界面】---------->
+    <div class="popupContainer" id="pageRegLog">
+        <div class="switcher">
+            <ul>
+                <li class="switchLog">登录</li>
+                <li class="switchReg">注册</li>
+            </ul>
+            <div class="switchBar"></div>
         </div>
-        <div class="posR">
-            <input id="regPassword" type="password" class="popContent" placeholder="密码">
-            <div class="errorDialog errorMsgPsw"> </div><!--密码处的错误提示框-->
-        </div>
-        <div id="selectList" class="popContent selectList" data-value="0">
-            您从那种渠道了解我们<span class="littleTriangle"></span>
-        </div>
-        <ul class="options">
-            <li value="1">关键词搜索</li>
-            <li value="2">朋友推荐</li>
-            <li value="3">同事邀请</li>
-            <li value="4">新闻报道</li>
-            <li value="5">微信</li>
-            <li value="6">新闻媒体</li>
-        </ul>
-        <button type="button" id="regBtn" class="btnS blueBtn popupBtn">注　册</button>
-    </form>
-    <div class="cutLine"></div>
-    <span class="socializeSpan">或使用以下账号登录</span>
-    <div class="socializeLoginBtn sWeixin"></div>
-    <div class="socializeLoginBtn sQQ"></div>
-    <div class="socializeLoginBtn sWeibo"></div>
-</div>
-
-<!--【登录界面】---------->
-<div class="popup" id="pageLogin">
-    <p class="cross">×</p>
-    <p class="switcher">
-         <span class="switcherUsing">登录</span>
-         <span class="switchDot">·</span>
-         <span class="switcherWillUse switcherReg">注册</span>
-    </p>
-    <form>
-        <div class="posR">
-            <ul class="searchResult"></ul>
-            <input id="userEmail" type="text" class="popContent emails" placeholder="邮箱/手机号">
-            <div class="errorDialog errorMsgId"> </div><!--用户名处的错误提示框-->
-            <div class="errorDialog errorMsgMiddle"> </div><!--用户名和密码中间的错误提示框-->
-        </div>
-        <div class="posR">
-            <input id="passWord" type="password" class="popContent" placeholder="密码">
-            <div class="errorDialog errorMsgPsw"> </div><!--密码处的错误提示框-->
-        </div>
-        <button type="button" class="btnS blueBtn popupBtn" id="newLogin" value="">登　录</button>
-    </form>
-    <p class="root">
-        <span>
-            <input class="popCenter" id="checkboxLogin" type="checkbox" name="checkboxLogin" >
-            <label for="checkboxLogin">记住密码</label>
-        </span>
-        <span>
-            <a href='javascript:void(0);' class='findPassword'>忘记密码了？</a>
-        </span>
-    </p>
-    <div class="cutLine"></div>
-    <span class="socializeSpan">或使用以下账号登录</span>
-    <div class="socializeLoginBtn sWeixin"></div>
-    <div class="socializeLoginBtn sQQ"></div>
-    <div class="socializeLoginBtn sWeibo"></div>
-</div>
-
-<!--【被邀请引导页】---------->
-<div class="popup" style="display:none" id="invitedPeople">
-    <p class="cross">×</p>
-    <div class="image">
-        {{!-- <img src="{{./images/loginDialog/emailIcon.png}}"> --}}
-        <img src="{{asset "images/loginDialog/emailIcon.png" }}">
-    </div>
-    <p class="middleText">
-        您被邀请加入<span class="bigBlue" id="teamName">北京测试团队</span>
-    </p>
-    <div class="cutLine"></div>
-    <button id="inviteReg1" class="btnS blueBtn popupBtn">立即注册新账户</button>
-    <button id="inviteLogin1" class="btnS redBtn popupBtn">已有账户，登录</button>
-</div>
-
-<!--【被邀请注册】---------->
-<div class="popup" style="display:none" id="invitedReg" >
-    <p class="teamConfirmFont">您被邀请加入
-        <span class="bigBlue"  id="teamName"></span>
-    </p>
-    <div class="cutLine"></div>
-    <p class="cross">×</p>
-    <p class="switcher">
-        <span class="switcherWillUse switcherLogin">登录</span>
-        <span class="switchDot">·</span>
-        <span class="switcherUsing">注册</span>
-    </p>
-    <form>
-        <div class="posR">
-            <ul class="searchResult"></ul>
-            <input id="email" type="email" class="popContent emails" placeholder="邮箱/手机号">
-            <div class="errorDialog errorMsgId"><!--用户名处的错误提示框-->
-
+        <form id="logMain">
+            <div class="posR">
+                <ul class="searchResult"></ul>
+                <input id="logEmail" type="text" class="popInput emails" autocomplete="off" placeholder="输入您的邮箱/手机号">
+                <i class="iconUser"></i>
             </div>
-            <div class="errorDialog errorMsgMiddle"><!--用户名和密码中间的错误提示框-->
-
+            <div class="posR">
+                <input id="logPassword" type="password" class="popInput passwords" placeholder="输入您的密码">
+                <i class="iconPsw"></i>
             </div>
+            <div class="aboutPsw">
+                <div class="rememberPsw">
+                    <input id="checkboxLogin" type="checkbox" name="checkboxLogin">
+                    <label for="checkboxLogin">记住密码</label>
+                </div>
+                <div class="findPsw">
+                    忘记密码
+                </div>
+            </div>
+            <div id="logBtn" class="btnS blueBtn">登　录</div>
+        </form>
+        <form id="regMain">
+            <div class="posR">
+                <ul class="searchResult"></ul>
+                <input id="regEmail" type="text" class="popInput emails" autocomplete="off" placeholder="输入您的邮箱/手机号">
+                <i class="iconUser"></i>
+            </div>
+            <div class="posR">
+                <input id="regPassword" type="password" class="popInput passwords" placeholder="输入您的密码">
+                <i class="iconPsw"></i>
+            </div>
+            <input id="regRealName" type="text" class="popInput" autocomplete="off" placeholder="输入您的姓名">
+
+            <div id="regBtn" class="btnS blueBtn">注　册</div>
+        </form>
+        <!--错误提示框-->
+        <footer>
+            <div class="socializeLoginBtn sQQ"></div>
+            <div class="socializeLoginBtn sWeixin"></div>
+            <div class="socializeLoginBtn sWeibo"></div>
+        </footer>
+    </div>
+    <!--【手机注册发验证码】---------------->
+    <div class="popupContainer" id="phoneReg">
+        <p class="resetMsg">短信发送成功</p>
+
+        <div class="posR">
+            <i class="iconPhone"></i>
+            <input id="regReInputPho" type="text" class="popInput" disabled="disabled" placeholder="您的手机号">
         </div>
         <div class="posR">
-            <input id="password" type="password" class="popContent" placeholder="密码">
-            <div class="errorDialog errorMsgPsw"> </div><!--密码处的错误提示框-->
-        </div>
-        <button type="button" id="invitedRegBtn" class="btnS blueBtn popupBtn" value="">注　册</button>
-    </form>
-    <div class="cutLine"></div>
-    <span class="socializeSpan">或使用以下账号登录</span>
-    <div class="socializeLoginBtn sWeixin"></div>
-    <div class="socializeLoginBtn sQQ"></div>
-    <div class="socializeLoginBtn sWeibo"></div>
-</div>
+            <input id="regValidateCode" type="text" placeholder="输入您的验证码">
 
-<!--【被邀请登录】---------->
-<div class="popup" style="display:none" id="invitedLogin" >
-    <p class="teamConfirmFont">您被邀请加入<span class="bigBlue" id="teamName"></span></p>
-    <div class="cutLine"></div>
-    <p class="cross">×</p>
-    <p class="switcher">
-        <span class="switcherUsing ">登录</span>
-        <span class="switchDot">·</span>
-        <span class="switcherWillUse switcherReg ">注册</span>
-    </p>
-    <form>
+            <div id="regReSendMessage" class="reSend">60</div>
+            <i class="iconYzm"></i>
+        </div>
+        <button id="regMessageCommit" class="btnS blueBtn">确　认</button>
+    </div>
+    <!--【被邀请引导页】---------->
+    <div class="popupContainer" id="invitedPeople">
+        <div class="planeImage">
+        </div>
+        <p class="middleText">
+            您被邀请加入 <span class="bigBlue teamName">某个团队</span>
+        </p>
+        <button id="inviteReg1" class="btnS btnLong blueBtn">立即注册新账户</button>
+        <button id="inviteLogin1" class="btnS btnLong redBtn">已有账户</button>
+    </div>
+    <!--【跳槽页】---------->
+    <div class="popupContainer" id="choseOne">
+        <div class="planeImage">
+        </div>
+        <p class="middleText">
+            您被邀请加入 <span class="bigBlue teamName">某个团队</span>
+        </p>
+        <button id="goNewTeam" class="btnS btnLong whiteBtn">是，我要加入新团队</button>
+        <button id="stayOldTeam" class="btnS btnLong blueBtn">否，我要留在原来的团队</button>
+    </div>
+    <!--【邮箱注册要去验证】---------------->
+    <div class="popupContainer" id="regSuccessDlg">
+        <div class="planeImage">
+        </div>
+        <p class="middleText">
+            <span>注册成功!验证邮件已发送到您的邮箱，请登录邮箱验证</span>
+        </p>
+
         <div class="posR">
             <ul class="searchResult"></ul>
-            <input id="inviteEmail" type="email" class="popContent emails" placeholder="邮箱/手机号">
-            <div class="errorDialog errorMsgId"> </div><!--用户名处的错误提示框-->
-            <div class="errorDialog errorMsgMiddle"> </div><!--用户名和密码中间的错误提示框-->
+            <input id="checkEmail" type="text" class="popInput emails" placeholder="重新输入邮箱">
+            <i class="iconEmail"></i>
+        </div>
+        <button id="toCheckEmail" class="btnS btnLong blueBtn">登录邮箱验证</button>
+    </div>
+    <!--【重置密码引导页】-->
+    <div class="popupContainer" id="findPassword">
+        <p class="resetMsg">请输入您的邮箱或手机号，我们将给您发送重置密码邮件或验证码</p>
+
+        <div class="posR">
+            <ul class="searchResult"></ul>
+            <input id="findRegEmail" type="email" class="popInput emails" placeholder="注册时的邮箱或手机号">
+            <i class="iconUser"></i>
+        </div>
+        <button type="button" id="send" class="btnS blueBtn">发　送</button>
+    </div>
+    <!--【发邮件重置密码】---------->
+    <div class="popupContainer" id="sendEmail">
+        <p class="resetMsg">修改密码邮件发送成功</p>
+
+        <div class="posR">
+            <ul class="searchResult"></ul>
+            <input id="sendEmailMsg" type="email" class="popInput emails" placeholder="重新输入邮箱">
+            <i class="iconEmail"></i>
+        </div>
+        <button id="emailResetPsw" class="btnS blueBtn">登录邮箱</button>
+    </div>
+    <!--【发短信重置密码】---------->
+    <div class="popupContainer" id="sendMessage">
+        <p class="resetMsg">短信发送成功，请输入您的手机验证码</p>
+
+        <div class="posR">
+            <input id="reInputPho" type="text" class="popInput " disabled placeholder="重新输入手机号码">
+            <i class="iconPhone"></i>
         </div>
         <div class="posR">
-            <input id="invitePassword" type="password" class="popContent" placeholder="密码">
-            <div class="errorDialog errorMsgPsw"> </div><!--密码处的错误提示框-->
+            <input id="validateCode" type="text" placeholder="验证码">
+            <!--手机不对错误提示-->
+            <button id="phoReSendMessage" class="reSend">60</button>
+            <i class="iconYzm"></i>
         </div>
-        <button type="button" class="btnS blueBtn popupBtn" id="inviteLogin" value="">登　录</button>
-    </form>
-    <p class="root">
-        <span>
-            <input class="popCenter" id="checkboxInvite" type="checkbox" name="checkboxInvite" >
-            <label for="checkboxInvite">记住密码</label>
-        </span>
-        <span><a href="javascript:void(0);" class='findPassword'>忘记密码了？</a></span>
-    </p>
-    <div class="cutLine"></div>
-    <span class="socializeSpan">或使用以下账号登录</span>
-    <div class="socializeLoginBtn sWeixin"></div>
-    <div class="socializeLoginBtn sQQ"></div>
-    <div class="socializeLoginBtn sWeibo"></div>
-</div>
+        <button id="messageCommit" class="btnS blueBtn">确　认</button>
+    </div>
+    <!--【重置密码界面】---------->
+    <div class="popupContainer" id="resetPassword">
+        <p class="resetMsg">请重新设置您的密码！</p>
 
-<!--【跳槽】---------->
-<div class="popup" style="display:none" id="choseOne">
-    <p class="cross">×</p>
-    <div class="image">
-        <img src="{{asset "images/loginDialog/emailIcon.png" }}">
-        {{!-- <img src="./images/loginDialog/emailIcon.png"> --}}
+        <div class="posR">
+            <input id="newPassword" type="password" class="popInput regPassword" placeholder="请输入新密码">
+            <i class="iconPsw"></i>
+        </div>
+        <div class="posR">
+            <input id="commitPassword" type="password" class="popInput regPassword" placeholder="再次输入确认">
+            <i class="iconPsw"></i>
+        </div>
+        <button id="renamePswCommit" class="btnS blueBtn">确　认</button>
     </div>
-    <p class="middleText">您被邀请加入
-        <span class="bigBlue"  id="teamName"> 北京测试团队</span>
-    </p>
-    <div class="cutLine"></div>
-    <button id="goNewTeam" class="btnS grayBtn popupBtn">是，我要加入新团队</button>
-    <button id="stayOldTeam" class="btnS blueBtn popupBtn">否，我要留在原来的团队</button>
-</div>
+    <!--【快速登录界面】---------->
+    <div class="popupContainer" id="pageSoonLogin">
+        <div class="switcher">
+            <ul>
+                <li class="switchQQ">QQ登录</li>
+                <li class="switchWX">微信登录</li>
+                <li class="switchLogin">账户登录</li>
+            </ul>
+            <div class="switchBar"></div>
+        </div>
+        <div class="soonCont QQMain">
+            <div class="qqPic toQQLogin" ></div>
+            <p class="toQQLogin"><span>使用QQ快速登录</span></p>
+            <div class="newUserReg">
+                <span>新用户注册</span>
+            </div>
+        </div>
+        <div class="soonCont WXMain">
+            <div class="wxPic" id="login_container"></div>
+            <p>请使用微信扫描二维码登录<i class="icon-fresh"></i><span class="freshText">刷新</span></p>
 
-<!--【手机注册发验证码】---------------->
-<div class="popup location" style="display:none" id="phoneReg">
-    <p class="cross">×</p>
-    <div class="sLock"></div>
-    <p class="resetMsg">短信发送成功，请输入您的手机验证码</p>
-    <div class="cutLine"></div>
-    <div class="posR">
-        <input id="regReInputPho" type="text" class="popContent" disabled placeholder="重新输入手机号码">
-        <div class="errorDialog errorMsgId"> </div><!--手机信息错误的提示框-->
+            <div class="newUserReg">
+                <span>新用户注册</span>
+            </div>
+        </div>
+        <div class="soonCont soonLogMain">
+            <div class="posR">
+                <ul class="searchResult"></ul>
+                <input type="text" class="logEmail popInput emails" autocomplete="off" placeholder="输入您的邮箱/手机号">
+                <i class="iconUser"></i>
+            </div>
+            <div class="posR">
+                <input type="password" class="logPassword popInput passwords" placeholder="输入您的密码">
+                <i class="iconPsw"></i>
+            </div>
+            <div class="soonLogBtn btnS blueBtn">登　录</div>
+            <div class="newUserReg">
+                <span>新用户注册</span>
+            </div>
+        </div>
     </div>
-    <div class="posR">
-        <input id="regValidateCode" type="text" class="popContent" placeholder="验证码">
-        <div class="errorDialog errorMsgPsw"> </div><!--手机信息错误的提示框-->
-        <button id="regReSendMessage" class="reSend">60</button>
-    </div>
-    <button id="regMessageCommit" class="btnS blueBtn popupBtn">确　认</button>
-</div>
-
-<!--【邮箱注册要去验证】---------------->
-<div class="popup regSuccessDlg" style="display:none" id="regSuccessDlg">
-    <p class="cross">×</p>
-    <div class="sPlane"></div>
-    <b class="">注册成功!</b>
-    <p class="middle">验证邮件已发送到您的邮箱，请登陆邮箱验证</p>
-    <div class="cutLine"></div>
-    <div class="posR">
-        <ul class="searchResult"></ul>
-        <input id="checkEmail" type="text" class="popContent emails" placeholder="重新输入邮箱">
-        <div class="errorDialog errorMsgId"> </div><!--用户名处的错误提示框-->
-    </div>
-    <button id="toCheckEmail" class="btnS blueBtn popupBtn">登陆邮箱验证</button>
-</div>
-
-<div class="popup location" style="display:none" id="findPassword">
-    <p class="cross">×</p>
-    <div class="sLock"></div>
-    <p class="resetMsg">请输入您的邮箱或手机号，我们将给您发送重置密码邮件或验证码</p>
-    <div class="cutLine"></div>
-    <div class="posR">
-        <ul class="searchResult"></ul>
-        <input id="findRegEmail" type="email" class="popContent emails" placeholder="注册时的邮箱或手机号">
-        <div class="errorDialog errorMsgId"> </div><!--邮箱或手机信息错误的提示框-->
-    </div>
-    <button type="button" id="send" class="btnS blueBtn popupBtn">发　送</button>
-</div>
-
-<!--【发邮件重置密码】---------->
-<div class="popup location" style="display:none" id="sendEmail">
-    <p class="cross">×</p>
-    <div class="sLock"></div>
-    <p class="resetMsg">修改密码邮件发送成功<span class="sendMsgTwo">请登录您的邮箱，进行密码修改设置</span></p>
-    <div class="cutLine"></div>
-    <div class="posR">
-        <ul class="searchResult"></ul>
-        <input id="sendEmailMsg" type="email" class="popContent emails" placeholder="重新输入邮箱">
-        <div class="errorDialog errorMsgId"> </div><!--邮箱不对错误提示 -->
-<!--        <button id="reSendEmail" class="reSend">60</button>-->
-    </div>
-    <button id="emailResetPsw" class="btnS blueBtn popupBtn">登录邮箱</button>
-</div>
-
-<!--【发短信重置密码】---------->
-<div class="popup location" style="display:none" id="sendMessage">
-    <p class="cross">×</p>
-    <div class="sLock"></div>
-    <p class="resetMsg">短信发送成功，请输入您的手机验证码</p>
-    <div class="cutLine"></div>
-    <div class="posR">
-        <input id="reInputPho" type="text" class="popContent " disabled placeholder="重新输入手机号码">
-        <div class="errorDialog errorMsgId"> </div><!--手机信息错误的提示框-->
-    </div>
-    <div class="posR">
-        <input id="validateCode" type="text" class="popContent" placeholder="验证码">
-        <div class="errorDialog errorMsgPsw"> </div><!--手机不对错误提示-->
-        <button id="phoReSendMessage" class="reSend">60</button>
-    </div>
-    <button id="messageCommit" class="btnS blueBtn popupBtn">确　认</button>
-</div>
-
-<!--【重置密码界面】---------->
-<div class="popup location" style="display:none" id="resetPassword">
-    <p class="cross">×</p>
-    <div class="sLock"></div>
-    <p class="resetMsg">请重新设置您的密码！</p>
-    <div class="cutLine"></div>
-    <div class="posR">
-        <input id="newPassword" type="password" class="popContent regPassword" placeholder="请输入新密码">
-        <div class="errorDialog errorMsgId"> </div>
-        <div class="errorDialog errorMsgMiddle"> </div><!--中间的提示框-->
-    </div>
-    <div class="posR">
-        <input id="commitPassword" type="password" class="popContent regPassword" placeholder="再次输入确认">
-        <div class="errorDialog errorMsgPsw"> </div>
-    </div>
-    <button id="renamePswCommit" class="btnS blueBtn popupBtn">确　认</button>
+    <div class="errorPlace"></div>
 </div>

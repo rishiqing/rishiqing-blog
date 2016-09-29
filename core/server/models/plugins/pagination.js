@@ -8,6 +8,12 @@ var _          = require('lodash'),
     paginationUtils,
     pagination;
 
+var config = require('../../config/index');
+var doRaw = function doRaw(query, fn) {
+    return config.database.knex.raw(query).then(function (response) {
+        return fn(response);
+    });
+};
 /**
  * ### Default pagination values
  * These are overridden via `options` passed to each function
@@ -51,6 +57,7 @@ paginationUtils = {
      * @param {options} options
      */
     addLimitAndOffset: function addLimitAndOffset(model, options) {
+        // console.log('addLimitAndOffset');
         if (_.isNumber(options.limit)) {
             model
                 .query('limit', options.limit)
@@ -136,6 +143,12 @@ pagination = function pagination(bookshelf) {
         fetchPage: function fetchPage(options) {
             // Setup pagination options
             options = paginationUtils.parseOptions(options);
+            options.filter = options.filter || [
+                'tags:\'media-report\'',
+                'tags:\'product\'',
+                'tags:\'activity\'',
+                'tags:\'user-story\''
+            ].join(' or ');
 
             // Get the table name and idAttribute for this model
             var tableName = _.result(this.constructor.prototype, 'tableName'),
@@ -180,9 +193,20 @@ pagination = function pagination(bookshelf) {
                 console.log('COUNT', countPromise.toQuery());
             }
 
+            // console.log('=============================pagenation--filter===============');
+            // console.log(options);
             // Setup the promise to do a fetch on our collection, running the specified query
             // @TODO: ensure option handling is done using an explicit pick elsewhere
             collectionPromise = self.fetchAll(_.omit(options, ['page', 'limit']));
+            // console.log(self);
+            // console.log(countPromise.toQuery());
+            // if (options.filter) {
+            //     collectionPromise = self.fetchAll(_.omit(options, ['page', 'limit']));
+            // }   else    {
+            //     collectionPromise = doRaw('select p.* from posts p left join posts_tags pt on p.id=pt.post_id where pt.tag_id<>9 or pt.id is null', function (r) {
+            //         console.log(r);
+            //     });
+            // }
 
             // Resolve the two promises
             return Promise.join(collectionPromise, countPromise).then(function formatResponse(results) {
