@@ -26,7 +26,6 @@ var css = [
 });
 
 var logins = [
-  'js/loginDialog.js',
   'js/login.js'
 ].map(function (item) {
   return path.join(THEME_ASSETS_PATH, item);

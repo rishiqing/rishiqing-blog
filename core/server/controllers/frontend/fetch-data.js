@@ -97,11 +97,16 @@ function fetchData(channelOptions) {
 
     // All channels must have a posts query, use the default if not provided
     postQuery = _.defaultsDeep({}, pageOptions, defaultPostQuery);
-    props.posts = processQuery(postQuery, channelOptions.slugParam);
 
     // if (channelOptions.name === 'index') {
-    //     query.isIndex = true;
+    //     props.posts = config.database.knex.raw('select p.* from posts p left join posts_tags pt on p.id=pt.post_id where pt.tag_id<>9 or pt.id is null').then(function (response) {
+    //         return fn(response);
+    //     });
+    // } else {
+    //     props.posts = processQuery(postQuery, channelOptions.slugParam);
     // }
+    props.posts = processQuery(postQuery, channelOptions.slugParam);
+
     _.each(channelOptions.data, function (query, name) {
         props[name] = processQuery(query, channelOptions.slugParam);
     });
