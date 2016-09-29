@@ -2151,6 +2151,7 @@ body.blurFont > div:not(.header, .popup) {
 /*body.blurFont > div {*/
     filter: blur(20px);
 }
+body.blurFont > div.header,
 body.blurFont > div.banner,
 body.blurFont > header,
 body.blurFont > div.banner-bg,
@@ -2166,3 +2167,9 @@ body.blurFont > div.footer  {
     transition: filter ease-out .8s;
 }
 
+body .mask {
+    z-index: 10001;
+}
+body .popup {
+    z-index: 10002;
+}
