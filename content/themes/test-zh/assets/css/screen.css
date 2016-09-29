@@ -2138,11 +2138,31 @@ article .text ul li, article .text ol li, article .text dl li {
     /*line-height: 45px;*/
 }
 body.home-template .article-wrap .article-list > li {
-    display: none;
+    /*display: none;*/
 }
 body.home-template .article-wrap .article-list > li.tag-product,
 body.home-template .article-wrap .article-list > li.tag-activity,
 body.home-template .article-wrap .article-list > li.tag-media-report,
 body.home-template .article-wrap .article-list > li.tag-user-story {
-    display: inline-block;
+    /*display: inline-block;*/
 }
+
+body.blurFont > div:not(.header, .popup) {
+/*body.blurFont > div {*/
+    filter: blur(20px);
+}
+body.blurFont > div.banner,
+body.blurFont > header,
+body.blurFont > div.banner-bg,
+body.blurFont > div.article-wrap,
+body.blurFont > div.rows ,
+body.blurFont > div.footer  {
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);
+    -o-filter: blur(20px);
+    filter: blur(20px);
+    -webkit-transition: filter ease-out .8s;
+    transition: filter ease-out .8s;
+}
+

@@ -7,12 +7,14 @@
 // var  BASE_URL = "http://192.168.3.137/task";
 // var  BASE_URL = "http://beta.rishiqing.com/app";
 // var  BASE_URL = "/app";
-!function(a,b){function d(a){var e,c=b.createElement("iframe"),d="https://open.weixin.qq.com/connect/qrconnect?appid="+a.appid+"&scope="+a.scope+"&redirect_uri="+a.redirect_uri+"&state="+a.state+"&login_type=jssdk";d+=a.style?"&style="+a.style:"",d+=a.href?"&href="+a.href:"",c.src=d,c.frameBorder="0",c.allowTransparency="true",c.scrolling="no",c.width="300px",c.height="400px",e=b.getElementById(a.id),e.innerHTML="",e.appendChild(c)}a.WxLogin=d}(window,document);
-  var joinNewTeam = "/team/joinNewTeam";
+// var BASE_URL = 'https://www.rishiqing.com/task/';
+var BASE_URL = '/task/';
+
+!function(a,b){function d(a){var e,c=b.createElement("iframe"),d="https://open.weixin.qq.com/connect/qrconnect?appid="+a.appid+"&scope="+a.scope+"&redirect_uri="+a.redirect_uri+"&state="+a.state+"&login_type=jssdk";d+=a.style?"&style="+a.style:"",d+=a.href?"&href="+a.href:"",c.src=d,c.frameBorder="0",c.allowTransparency="true",c.scrolling="no",c.width="179px",c.height="179px",e=b.getElementById(a.id),e.innerHTML="",e.appendChild(c)}a.WxLogin=d}(window,document);
+var joinNewTeam = "/team/joinNewTeam";
 var SPRING_CHECK = "/j_spring_security_check";
 var usernameRegistered = "/reg/usernameRegistered";
 var REG_URL = "/reg/register";
-var BASE_URL = "https://www.rishiqing.com/task/"
 var wxAuth = "/weixinOauth/toLogin";
 var qqAuth = "/qqOauth/toLogin";
 var sinaAuth = "/sinaOauth/toLogin";
@@ -280,8 +282,9 @@ function DlgControl () {
       $blank.show(); // 显示空框
       $blank.css({ top: top, left: left }); // 设置空框居中
       setTimeout(function () {
-        $('.rows').addClass('blurFont'); // 虚化背景
-        $('.footer').addClass('blurFont');
+        // $('.rows').addClass('blurFont'); // 虚化背景
+        // $('.footer').addClass('blurFont');
+        $('body').addClass('blurFont');
       }, 100);
     },
 
@@ -290,8 +293,9 @@ function DlgControl () {
       $(".popup").hide();
       $(".mask").hide();
       setTimeout(function () {
-        $('.rows').removeClass('blurFont');
-        $('.footer').removeClass('blurFont');
+        // $('.rows').removeClass('blurFont');
+        // $('.footer').removeClass('blurFont');
+        $('body').removeClass('blurFont');
       }, 100);
     },
 
