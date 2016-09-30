@@ -2173,3 +2173,9 @@ body .mask {
 body .popup {
     z-index: 10002;
 }
+body > .header > .nav {
+    margin-right: 0;
+}
+body > .header .log-reg {
+    display: none;
+}
