@@ -88,8 +88,8 @@ function processQuery(query, slugParam) {
  */
 function fetchData(channelOptions) {
     // @TODO improve this further
-    console.log('=====================================')
-    console.log(channelOptions)
+    // console.log('=====================================')
+    // console.log(channelOptions)
     var pageOptions = channelOptions.isRSS ?
         {options: channelOptions.postOptions} : fetchPostsPerPage(channelOptions.postOptions),
         postQuery,
