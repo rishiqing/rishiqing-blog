@@ -168,8 +168,8 @@ Post = ghostBookshelf.Model.extend({
      * @return {Promise(ghostBookshelf.Models.Post)} Updated Post model
      */
     updateTags: function updateTags(savedModel, response, options) {
-        console.info('================================================= update tags =================================================')
-        console.info(JSON.stringify(savedModel), response, options);
+        // console.info('================================================= update tags =================================================')
+        // console.info(JSON.stringify(savedModel), response, options);
 
         var newTags = this.myTags,
             TagModel = ghostBookshelf.model('Tag');
