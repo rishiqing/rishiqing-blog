@@ -4,8 +4,8 @@
 
     {{#if image}}
         <div id="feature_image">
-            <div class="inner" style="background-image: url('{{image}}')">
-                <img src="{{image}}">
+            <div class="inner" style="background-image: url('{{@blog.url}}{{image}}')">
+                <img src="{{@blog.url}}{{image}}">
             </div>
         </div>
     {{/if}}
