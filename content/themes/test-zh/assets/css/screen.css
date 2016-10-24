@@ -1,3 +1,4 @@
+@media screen and (max-width:1024px){body.one-row #container{height:auto}body #container .footer,body #container .rows{box-sizing:border-box}.rows.rows-7{margin-left:0}}.nav-res{display:none}.bg-img-res{position:absolute;z-index:-2;top:0;left:0;right:0;bottom:0;overflow:hidden}@media screen and (max-width:720px){body #container{padding-bottom:45px}body .rows-1 .header .log-reg{display:none}.nav-res,ul.nav li.res-btn{display:block}.rows h3{font-size:18px}.rows-2>h3+p{width:300px}.rows-1.show-menu ul.nav{height:270px;transform:translateY(0);line-height:28px;opacity:1;z-index:100000;display:block;margin-top:-4px}ul.nav{position:absolute;top:52px;width:100%;height:0;overflow:hidden;opacity:0;z-index:-100;line-height:0;margin-top:-4px;background-color:#fff;transition:all ease-out .2s;-webkit-transition:all ease-out .2s;border-radius:2px;padding-bottom:15px}ul.nav .divider{height:1px;border-top:1px dashed #a3a3a3;margin-bottom:15px}ul.nav li{text-align:center;color:#666}ul.nav li.res-btn a{border:1px solid #0082ff;color:#0082ff!important;border-radius:4px;width:193px;height:24px}.rows-1 .header{overflow:visible}.rows-1 .header .nav li{float:none;width:100%;text-align:center}.rows-1 .header .nav li+li{margin-left:0}.rows-1.fixed .nav-res{border:1px solid #0082ff;color:#0082ff}.nav-res{margin-right:32px;float:right;border:1px solid #fff;color:#fff;border-radius:4px;line-height:24px;width:48px}.rows-7{height:auto}.rows-7>div{width:100%}.rows-7>div>div{width:50%;height:220px}.rows-7>div>div:nth-last-child(1),.rows-7>div>div:nth-last-child(2){height:120px}}
 /* Link colour */
 a {
     color: #d35c5c;
@@ -2172,4 +2173,20 @@ body .mask {
 }
 body .popup {
     z-index: 10002;
+}
+body > .header > .nav {
+    margin-right: 0;
+}
+body > .header .log-reg {
+    display: none;
+}
+#kf5-support-123456789.kf5-style3 .kf5-support-btn {
+    min-width: 56px !important;
+    right: 31px !important;
+    height: 30px !important;
+    line-height: 29px !important;
+}
+
+#kf5-support-123456789.kf5-style3 .kf5-support-btn span {
+    font-size: 12px !important;
 }

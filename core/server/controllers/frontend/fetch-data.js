@@ -88,8 +88,8 @@ function processQuery(query, slugParam) {
  */
 function fetchData(channelOptions) {
     // @TODO improve this further
-    console.log('=====================================')
-    console.log(channelOptions)
+    // console.log('=====================================')
+    // console.log(channelOptions)
     var pageOptions = channelOptions.isRSS ?
         {options: channelOptions.postOptions} : fetchPostsPerPage(channelOptions.postOptions),
         postQuery,
@@ -114,9 +114,9 @@ function fetchData(channelOptions) {
     return Promise.props(props).then(function formatResponse(results) {
         var response = _.cloneDeep(results.posts);
         delete results.posts;
-        console.log('==============================   Return ==========================');
-        console.log(results)
-        console.log(channelOptions);
+        // console.log('==============================   Return ==========================');
+        // console.log(results)
+        // console.log(channelOptions);
         // process any remaining data
         if (!_.isEmpty(results)) {
             response.data = {};
