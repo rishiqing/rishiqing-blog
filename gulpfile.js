@@ -1,6 +1,5 @@
 var gulp = require('gulp');
 var path = require('path');
-// var coffee = require('gulp-coffee');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
@@ -10,6 +9,7 @@ var del = require('del');
 var cssmin = require('gulp-clean-css');
 
 var THEME_ASSETS_PATH = path.join(__dirname, './content/themes/test-zh/assets');
+var SCSS_DIR = path.join(THEME_ASSETS_PATH, '/scss');
 var libs = [
   'js/jQuery/jquery-1.11.3.min.js',
   'js/jQuery/jquery.cookie.js',
@@ -27,8 +27,8 @@ var css = [
 });
 
 var _css = [
-  'app.css',
-  'screen.css'
+  'screen.css',
+  'app.css'
 ].map(function (item) {
   return path.join(THEME_ASSETS_PATH, '/css/', item);
 });
@@ -68,7 +68,7 @@ gulp.task('cssmin', function () {
 });
 
 gulp.task("scss", function () {
-  scss(path.join(sourceFolder.scss, '/*.scss'), {
+  scss(path.join(sourceFolder.scss, '/index.scss'), {
     sourcemap: true
   })
   .pipe(concat('app.css'))
@@ -104,7 +104,8 @@ gulp.task('scripts', ['clean'], function() {
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch(sourceFolder.js + '/*.js', ['scripts']);
-  gulp.watch(sourceFolder.css + '/*.css', ['cssmin']);
+  gulp.watch(SCSS_DIR + '/*.scss', ['scss', 'cssmin']);
+  // gulp.watch(sourceFolder.css + '/*.css', ['cssmin']);
 });
 
 // The default task (called when you run `gulp` from cli)
