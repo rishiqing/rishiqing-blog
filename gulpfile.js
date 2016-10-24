@@ -7,6 +7,7 @@ var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
 var scss = require('gulp-ruby-sass');
 var del = require('del');
+var cssmin = require('gulp-clean-css');
 
 var THEME_ASSETS_PATH = path.join(__dirname, './content/themes/test-zh/assets');
 var libs = [
@@ -20,6 +21,13 @@ var libs = [
 
 var css = [
   'loginDialog.css',
+  'screen.css'
+].map(function (item) {
+  return path.join(THEME_ASSETS_PATH, '/css/', item);
+});
+
+var _css = [
+  'app.css',
   'screen.css'
 ].map(function (item) {
   return path.join(THEME_ASSETS_PATH, '/css/', item);
@@ -50,15 +58,22 @@ gulp.task('clean', function() {
   return del(['build']);
 });
 
-// console.log(path.join(sourceFolder.scss, '/*.scss'))
+gulp.task('cssmin', function () {
+  return gulp.src(_css)
+         .pipe(sourcemaps.init())
+         .pipe(cssmin())
+         .pipe(concat('index.min.css'))
+         .pipe(sourcemaps.write())
+         .pipe(gulp.dest(sourceFolder.css));
+});
+
 gulp.task("scss", function () {
   scss(path.join(sourceFolder.scss, '/*.scss'), {
     sourcemap: true
   })
-  .pipe(uglify())
-  .pipe(concat('all.min.css'))
+  .pipe(concat('app.css'))
   .pipe(sourcemaps.write())
-  .pipe(gulp.dest(sourceFolder.css));
+  .pipe(gulp.dest(path.join(sourceFolder.css)));
   // gulp.src(
   //     path.join(sourceFolder.scss, '/*.scss')
   // ).pipe(scss(
@@ -89,7 +104,7 @@ gulp.task('scripts', ['clean'], function() {
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch(sourceFolder.js + '/*.js', ['scripts']);
-  // gulp.watch(sourceFolder.scss + '/*.scss', ['scss']);
+  gulp.watch(sourceFolder.css + '/*.css', ['cssmin']);
 });
 
 // The default task (called when you run `gulp` from cli)
