@@ -1,0 +1,77 @@
+/*
+* @Author: Jiang Guoxi
+* @Date:   2016-10-24 11:31:41
+* @Last Modified by:   Jiang Guoxi
+* @Last Modified time: 2016-10-24 11:38:40
+*/
+
+.banner-bg {
+    /*background: url('../banner.png');*/
+    /*width: 1024px;*/
+    width: 100%;
+    height: 476px;
+    margin: 0 auto;
+    margin-top: $NAV_HEGHT;
+    // margin-top: 61px;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+.banner-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+}
+.banner-bg > img {
+    position: absolute;
+    z-index: -2;
+    top: 0;
+}
+.banner-bg > img.left {
+    left: 0;
+}
+.banner-bg > img.right {
+    right: 0;
+    z-index: -1;
+}
+.banner-bg > .wrap {
+    width: 911px;
+    margin: 0 auto;
+    position: relative;
+    box-sizing: border-box;
+    padding-left: 92px;
+}
+.banner-bg > .wrap > img {
+    position: absolute;
+    left: -1px;
+    /*top: -18px;*/
+    top: -2px;
+}
+
+
+
+.banner-bg > div >  h2 + p {
+    text-align: left;
+    /*margin-left: 126px;*/
+    color: #959595;
+    padding-left: 5px;
+}
+.banner-bg > div >  h2,
+.banner-bg > div >  p {
+    width: 772px;
+    /*width: 911px;*/
+    /*margin: 0 auto;*/
+    position: relative;
+    z-index: 12;
+}
+.banner-bg > div >  h2 {
+    text-align: left;
+    font-size: 32px;
+    line-height: 45px;
+    /*margin-top: 176px;*/
+    margin-top: 160px;
+}

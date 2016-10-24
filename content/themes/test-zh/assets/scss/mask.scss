@@ -1,0 +1,39 @@
+/*
+* @Author: Jiang Guoxi
+* @Date:   2016-10-24 11:29:55
+* @Last Modified by:   Jiang Guoxi
+* @Last Modified time: 2016-10-24 11:30:05
+*/
+
+body.blurFont > div:not(.header, .popup) {
+/*body.blurFont > div {*/
+    filter: blur(20px);
+}
+body.blurFont > div.header,
+body.blurFont > div.banner,
+body.blurFont > header,
+body.blurFont > div.banner-bg,
+body.blurFont > div.article-wrap,
+body.blurFont > div.rows ,
+body.blurFont > div.footer  {
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);
+    -o-filter: blur(20px);
+    filter: blur(20px);
+    -webkit-transition: filter ease-out .8s;
+    transition: filter ease-out .8s;
+}
+
+body .mask {
+    z-index: 10001;
+}
+body .popup {
+    z-index: 10002;
+}
+body > .header > .nav {
+    margin-right: 0;
+}
+body > .header .log-reg {
+    display: none;
+}

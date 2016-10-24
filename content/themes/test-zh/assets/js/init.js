@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-10-24 09:31:38
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-10-24 09:32:26
+* @Last Modified time: 2016-10-24 12:19:34
 */
 
 !function () {
@@ -24,7 +24,9 @@
   if (/iPad/i.test(ua)) {
     return $body.addClass('iPad');
   }
-  var $header = $('.rows-1');
+}();
+!function () {
+  var $header = $('.header');
   if (window.isMobile) {
     $header.addClass('fixed');
     $header.find('.nav-res').on('click', function () {

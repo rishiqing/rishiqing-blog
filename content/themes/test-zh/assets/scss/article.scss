@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-09-20 17:33:31
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-09-20 17:35:34
+* @Last Modified time: 2016-10-24 11:30:35
 */
 article[role='main'] {
   h1 {
@@ -30,4 +30,51 @@ article[role='main'] {
     color: #333;
   }
 
+}
+article .text {
+    font-family:PingFang, "Helvetica Neue", Helvetica, "Hiragino Sans GB", STHeitiSC-Light, SimHei, "Microsoft YaHei", "\\5FAEÈíÑÅºÚ", Arial, sans-serif;
+}
+article[role='main']  h1 {
+    font-size: 36px;
+    color: #333;
+}
+article[role='main']  h2 {
+    font-size: 18px;
+    color: #333;
+}
+article[role='main']  h3 {
+    font-size: 14px;
+    color: #000;
+}
+article[role='main']  h4 {
+    font-size: 12px;
+    color: #000;
+}
+article[role='main']  h2,
+article[role='main']  h3,
+article[role='main']  h4 {
+    font-weight: bold;
+}
+
+article[role='main']   p {
+    font-size: 16px;
+    line-height: 26px;
+    color: #333;
+}
+article[role='main'] .text ul {
+    list-style-type: disc;
+}
+
+article[role='main']  blockquote {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+body > article {
+    width: 740px;
+    max-width: 740px;
+}
+article .text ul li, article .text ol li, article .text dl li {
+    font-size: 15px;
+    color: #000;
 }
