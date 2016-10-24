@@ -11,9 +11,8 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        // url: 'http://localhost:2368',
-        // url: 'https://blog.rishiqing.com',
-        url: 'https://blog.rishiqing.com',
+        //url: 'http://localhost:2368',
+        url: 'http://blog.rishiqing.com',
         mail: {},
         database: {
             client: 'sqlite3',
@@ -87,8 +86,7 @@ config = {
         // Change this to your Ghost blog's published URL.
         // url: 'http://localhost:2368',
         // url: 'http://192.168.3.3:2368',
-        // url: 'http://127.0.0.1:2368',
-        url: 'http://localhost:8040/blog/',
+        url: 'http://127.0.0.1:2368',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
