@@ -26,7 +26,8 @@ var css = [
 });
 
 var logins = [
-  'js/login.js'
+  'js/login.js',
+  'js/init.js'
 ].map(function (item) {
   return path.join(THEME_ASSETS_PATH, item);
 });
@@ -50,18 +51,20 @@ gulp.task('clean', function() {
 });
 
 // console.log(path.join(sourceFolder.scss, '/*.scss'))
-// gulp.task("scss", function () {
-//   scss(path.join(sourceFolder.scss, '/screen.scss'), {
-//     sourcemap: true
-//   })
-//   .pipe(sourcemaps.write())
-//   .pipe(gulp.dest(sourceFolder.css));
-//   // gulp.src(
-//   //     path.join(sourceFolder.scss, '/*.scss')
-//   // ).pipe(scss(
-//   //     {"bundleExec": true}
-//   // )).pipe(gulp.dest(sourceFolder.css));
-// });
+gulp.task("scss", function () {
+  scss(path.join(sourceFolder.scss, '/*.scss'), {
+    sourcemap: true
+  })
+  .pipe(uglify())
+  .pipe(concat('all.min.css'))
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest(sourceFolder.css));
+  // gulp.src(
+  //     path.join(sourceFolder.scss, '/*.scss')
+  // ).pipe(scss(
+  //     {"bundleExec": true}
+  // )).pipe(gulp.dest(sourceFolder.css));
+});
 
 gulp.task('scripts', ['clean'], function() {
   // Minify and copy all JavaScript (except vendor scripts)
