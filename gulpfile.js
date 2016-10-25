@@ -9,7 +9,11 @@ var del = require('del');
 var cssmin = require('gulp-clean-css');
 
 var THEME_ASSETS_PATH = path.join(__dirname, './content/themes/test-zh/assets');
-var SCSS_DIR = path.join(THEME_ASSETS_PATH, '/scss');
+var DIST_CSS = path.join(THEME_ASSETS_PATH, './dist/css/');
+var DIST_JS = path.join(THEME_ASSETS_PATH, './dist/js/');
+var SCSS_DIR = path.join(THEME_ASSETS_PATH, './scss');
+console.log(DIST_CSS);
+
 var libs = [
   'js/jQuery/jquery-1.11.3.min.js',
   'js/jQuery/jquery.cookie.js',
@@ -47,50 +51,32 @@ _sourceFolders.forEach(function (item) {
   sourceFolder[item] = path.join(THEME_ASSETS_PATH, item + '/');
 });
 
-var dist = {
-  lib: path.join(THEME_ASSETS_PATH, '/dist/js/libs.min.js'),
-  login: path.join(THEME_ASSETS_PATH, '/dist/js/login.min.js')
-};
-// Not all tasks need to use streams
-// A gulpfile is just another node program and you can use any package available on npm
-gulp.task('clean', function() {
-  // You can use multiple globbing patterns as you would with `gulp.src`
-  return del(['build']);
-});
-
-gulp.task('cssmin', ['cssmin'], function () {
-  return gulp.src(_css)
-         .pipe(sourcemaps.init())
-         .pipe(cssmin())
-         .pipe(concat('index.min.css'))
-         .pipe(sourcemaps.write())
-         .pipe(gulp.dest(sourceFolder.css));
-});
-
 gulp.task("scss", function () {
-  scss(path.join(sourceFolder.scss, '/index.scss'), {
-    sourcemap: true
-  })
-  .pipe(concat('app.css'))
-  .pipe(sourcemaps.write())
-  .pipe(gulp.dest(path.join(sourceFolder.css)));
-  // gulp.src(
-  //     path.join(sourceFolder.scss, '/*.scss')
-  // ).pipe(scss(
-  //     {"bundleExec": true}
-  // )).pipe(gulp.dest(sourceFolder.css));
+  return scss(path.join(sourceFolder.scss, '/index.scss'), {
+      sourcemap: true
+    })
+    .pipe(concat('app.css'))
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(path.join(sourceFolder.css)));
 });
 
-gulp.task('scripts', ['clean'], function() {
-  // Minify and copy all JavaScript (except vendor scripts)
-  // with sourcemaps all the way down
-  // return gulp.src(sourceFolder.js + '/*.js')
+gulp.task('cssmin', ['scss'], function () {
+   gulp.src(_css)
+   .pipe(sourcemaps.init())
+   .pipe(cssmin())
+   .pipe(concat('index.min.css'))
+   .pipe(sourcemaps.write())
+   .pipe(gulp.dest(DIST_CSS));
+});
+
+
+gulp.task('scripts', function() {
   return gulp.src(allJs)
     .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(concat('all.min.js'))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(path.join(THEME_ASSETS_PATH, '/dist/js')));
+    .pipe(gulp.dest(path.join(DIST_JS)));
 });
 
 // Copy all static images
@@ -105,6 +91,9 @@ gulp.task('scripts', ['clean'], function() {
 gulp.task('watch', function() {
   gulp.watch(sourceFolder.js + '/*.js', ['scripts']);
   gulp.watch(SCSS_DIR + '/*.scss', ['scss', 'cssmin']);
+  gulp.watch(sourceFolder.css + '/screen.css', ['scss', 'cssmin']);
+  // console.log(sourceFolder.scss)
+  // gulp.watch(sourceFolder.scss + '/*.scss', ['scss', 'cssmin']);
   // gulp.watch(sourceFolder.css + '/*.css', ['cssmin']);
 });
 
