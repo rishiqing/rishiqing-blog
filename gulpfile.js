@@ -12,7 +12,6 @@ var THEME_ASSETS_PATH = path.join(__dirname, './content/themes/test-zh/assets');
 var DIST_CSS = path.join(THEME_ASSETS_PATH, './dist/css/');
 var DIST_JS = path.join(THEME_ASSETS_PATH, './dist/js/');
 var SCSS_DIR = path.join(THEME_ASSETS_PATH, './scss');
-console.log(DIST_CSS);
 
 var libs = [
   'js/jQuery/jquery-1.11.3.min.js',
@@ -23,14 +22,14 @@ var libs = [
   return path.join(THEME_ASSETS_PATH, item);
 });
 
-var css = [
-  'loginDialog.css',
-  'screen.css'
-].map(function (item) {
-  return path.join(THEME_ASSETS_PATH, '/css/', item);
-});
+// var css = [
+//   'loginDialog.css',
+//   'screen.css'
+// ].map(function (item) {
+//   return path.join(THEME_ASSETS_PATH, '/css/', item);
+// });
 
-var _css = [
+var css = [
   'screen.css',
   'app.css'
 ].map(function (item) {
@@ -43,6 +42,7 @@ var logins = [
 ].map(function (item) {
   return path.join(THEME_ASSETS_PATH, item);
 });
+
 var allJs = libs.concat(logins);
 var _sourceFolders = 'js css scss'.split(' ');
 var sourceFolder = {};
@@ -61,14 +61,13 @@ gulp.task("scss", function () {
 });
 
 gulp.task('cssmin', ['scss'], function () {
-   gulp.src(_css)
+   gulp.src(css)
    .pipe(sourcemaps.init())
    .pipe(cssmin())
    .pipe(concat('index.min.css'))
    .pipe(sourcemaps.write())
    .pipe(gulp.dest(DIST_CSS));
 });
-
 
 gulp.task('scripts', function() {
   return gulp.src(allJs)
@@ -79,22 +78,11 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest(path.join(DIST_JS)));
 });
 
-// Copy all static images
-// gulp.task('images', ['clean'], function() {
-//   return gulp.src(paths.images)
-//     // Pass in options to the task
-//     .pipe(imagemin({optimizationLevel: 5}))
-//     .pipe(gulp.dest('build/img'));
-// });
-
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch(sourceFolder.js + '/*.js', ['scripts']);
   gulp.watch(SCSS_DIR + '/*.scss', ['scss', 'cssmin']);
   gulp.watch(sourceFolder.css + '/screen.css', ['scss', 'cssmin']);
-  // console.log(sourceFolder.scss)
-  // gulp.watch(sourceFolder.scss + '/*.scss', ['scss', 'cssmin']);
-  // gulp.watch(sourceFolder.css + '/*.css', ['cssmin']);
 });
 
 // The default task (called when you run `gulp` from cli)
