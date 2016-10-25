@@ -58,7 +58,7 @@ gulp.task('clean', function() {
   return del(['build']);
 });
 
-gulp.task('cssmin', function () {
+gulp.task('cssmin', ['cssmin'], function () {
   return gulp.src(_css)
          .pipe(sourcemaps.init())
          .pipe(cssmin())
