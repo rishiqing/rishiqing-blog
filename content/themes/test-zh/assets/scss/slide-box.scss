@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-10-24 16:23:56
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-10-24 17:19:26
+* @Last Modified time: 2016-10-24 17:56:45
 */
 @media screen and (max-width: 720px) {
   body {
@@ -18,7 +18,8 @@
     .header.show-menu {
       ul.nav {
         height: auto;
-        bottom: calc(25% - 50px);
+        // bottom: calc(25% - 50px);
+        bottom: 18%;
         // height: calc(75vh - 50px);
         // height: 270px;
         transform: translateY(0);
@@ -30,6 +31,7 @@
         left: 0;
         li {
           visibility: visible;
+          display: block;
         }
       }
     }
@@ -66,7 +68,7 @@
       li {
         text-align: center;
         color: #666;
-        height: 13.06%;
+        height: 12.06%;
         line-height: 1;
         visibility: hidden;
         // line-height:
