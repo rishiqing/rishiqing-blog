@@ -47,10 +47,10 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
 }
 @font-face {
     font-family: 'Pictos Custom';
-    src: url("../fonts/pictos_custom.eot");
-    src: url("../fonts/pictos_custom.eot?#iefix") format("embedded-opentype"),
-         url("../fonts/pictos_custom.woff") format("woff"),
-         url("../fonts/pictos_custom.ttf") format("truetype");
+    src: url("../../fonts/pictos_custom.eot");
+    src: url("../../fonts/pictos_custom.eot?#iefix") format("embedded-opentype"),
+         url("../../fonts/pictos_custom.woff") format("woff"),
+         url("../../fonts/pictos_custom.ttf") format("truetype");
     font-weight: normal;
     font-style: normal
 }
