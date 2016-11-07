@@ -72,6 +72,10 @@ gulp.task('cssmin', ['scss'], function () {
 
 gulp.task('scripts', function() {
   return gulp.src(allJs)
+    .on('error', function (e) {
+      console.log('error: ')
+      console.log(e)
+    })
     .pipe(sourcemaps.init())
       .pipe(uglify())
       .pipe(concat('all.min.js'))
