@@ -30,6 +30,7 @@ var libs = [
 // });
 
 var css = [
+  'public.min.css',
   'screen.css',
   'app.css'
 ].map(function (item) {
@@ -37,7 +38,7 @@ var css = [
 });
 
 var logins = [
-  'js/login.js',
+  'js/login.min.js',
   'js/init.js'
 ].map(function (item) {
   return path.join(THEME_ASSETS_PATH, item);

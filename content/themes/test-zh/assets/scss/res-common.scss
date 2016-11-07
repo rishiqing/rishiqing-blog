@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-10-24 12:31:48
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-10-24 16:25:53
+* @Last Modified time: 2016-10-25 21:10:54
 */
 @import './slide-box';
 
@@ -31,13 +31,7 @@
   overflow: hidden;
 }
 
-@media screen and (max-width: 720px) {
-  body #container {
-    padding-bottom: 48px;
-  }
-  body .rows-1 .header .log-reg {
-    display: none;
-  }
+@media screen and (max-width: 1024px) {
   body {
     .rows-7 {
       height: auto;
@@ -54,7 +48,66 @@
       height: 120px;
     }
     .footer {
-      padding-bottom: 30px;
+      padding-bottom: 45px;
     }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  body #container {
+    padding-bottom: 48px;
+  }
+  body .rows-1 .header .log-reg {
+    display: none;
+  }
+}
+@media screen and (max-width: 1024px) and (min-width: 720px) {
+  body > .header {
+    width: 100vw;
+    // width: 100%;
+  }
+  ul.article-list {
+    width: 100%;
+    li {
+      width: 261px;
+      & + li {
+        margin-left: 0;
+      }
+      &:nth-child(2n) {
+        margin-left: 31px;
+      }
+    }
+  }
+  body .rows-7>div>div {
+    &:nth-child(2n + 1) {
+      width: 40%;
+      padding-left: 21%;
+    }
+    &:nth-child(2n) {
+      padding-left: 22%;
+    }
+  }
+  body .footer {
+    padding-bottom: 0;
+  }
+  body>header>.tags {
+    width: 100%;
+    padding: 0 calc(50% - 301px);
+    box-sizing: border-box;
+    li {
+      display: inline-block;
+      width: 50%;
+      & + li {
+        margin-left: 0;
+      }
+      &:nth-child(3),
+      &:nth-child(4) {
+        margin-top: 40px;
+      }
+
+    }
+  }
+  body>article {
+    width: 85%;
   }
 }

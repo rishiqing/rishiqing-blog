@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-10-24 16:23:56
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-10-25 15:34:34
+* @Last Modified time: 2016-10-25 19:25:17
 */
 @media screen and (max-width: 720px) {
   body {
@@ -15,6 +15,7 @@
     .rows > h3 {
       // margin-top: 38px;
     }
+    .rows-1.show-menu,
     .header.show-menu {
       .logo {
         position: relative;
@@ -31,6 +32,7 @@
         li {
           visibility: visible;
           display: block;
+          margin-top: 0;
         }
       }
     }
@@ -84,6 +86,7 @@
         }
       }
     }
+    .rows-1 .header,
     .header  {
       overflow: visible;
       .nav  li {
@@ -98,8 +101,6 @@
     .nav-res {
       border:1px solid #0082ff;
       color: #0082ff;
-    }
-    .nav-res {
       display: block;
       margin-right: 32px;
       float: right;
@@ -109,6 +110,10 @@
       line-height: 24px;
       width: 48px;
       position: relative;
+    }
+    .rows-1.fixed .nav-res {
+      border:1px solid #0082ff;
+      color: #0082ff;
     }
   }
 }
