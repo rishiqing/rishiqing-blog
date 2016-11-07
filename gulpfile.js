@@ -62,6 +62,7 @@ gulp.task("scss", function () {
 });
 
 gulp.task('cssmin', ['scss'], function () {
+  console.log(css);
    gulp.src(css)
    .pipe(sourcemaps.init())
    .pipe(cssmin())
