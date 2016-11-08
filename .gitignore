@@ -3,4 +3,4 @@
 node_modules
 knex-test
 content/data/*.db
-content/images2/;
+content/images2/
