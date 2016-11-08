@@ -13,6 +13,7 @@ copyCss () {
 
 copyJs () {
   echo "复制login.min.js文件中...";
+  # cd ./content/themes/test-zh/assets/js;
   rm -rf "./content/themes/test-zh/assets/js/login.min.js";
   cp "${rootPath}dist/js/login.min.js" "./content/themes/test-zh/assets/js/";
   # 下面的语句会吃掉压缩后的引号o(╯□╰)o
@@ -22,13 +23,9 @@ copyJs () {
 copyHtml () {
   echo "复制头部、底部文件中...";
   cd "./content/themes/test-zh/partials/";
-  # rm -rf header-nav.hbs;
+  # 头部文件因为logo路径的问题， 不能够直接拷过来
   rm -rf footer.hbs;
   cp ${rootPath}public/footerList2.php ./footer.hbs;
-  # cp ${rootPath}public/header.php ./header-nav.hbs;
-
-  # cat "${rootPath}public/footerList2.php" | xargs echo > "./content/themes/test-zh/partials/footer.hbs";
-  # cat "${rootPath}public/header.php" | xargs echo > "./content/themes/test-zh/partials/header-nav.hbs";
   echo "头部、底部html复制完成";
 }
 copyCss;
