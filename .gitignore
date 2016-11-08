@@ -3,3 +3,4 @@ node_modules
 .sass-cache
 knex-test
 content/data2
+content/data/*.db
