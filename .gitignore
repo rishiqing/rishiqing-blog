@@ -1,6 +1,6 @@
-node_modules
 .gulp-scss-cache
 .sass-cache
+node_modules
 knex-test
 content/data2
 content/data/*.db
