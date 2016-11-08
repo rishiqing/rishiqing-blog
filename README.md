@@ -26,13 +26,6 @@
 │
 ├───fonts
 │
-├───images
-│   ├───banner
-│   │
-│   ├───loginDialog
-│   │
-│   └───logo
-│
 ├───js
 │       init.js
 │       lib.min.js     # 这两个文件直接使用脚本拷贝过来

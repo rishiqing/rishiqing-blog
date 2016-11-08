@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-09-20 17:33:31
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-10-24 11:30:35
+* @Last Modified time: 2016-11-08 12:16:46
 */
 article[role='main'] {
   h1 {
@@ -77,4 +77,12 @@ body > article {
 article .text ul li, article .text ol li, article .text dl li {
     font-size: 15px;
     color: #000;
+}
+
+body>a.btn.nav.next span {
+  right: 32px;
+}
+body>a.btn.nav.prev span {
+  margin-top: 29px;
+  left: 40px;
 }

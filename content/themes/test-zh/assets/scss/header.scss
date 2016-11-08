@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-10-24 11:37:42
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-10-24 17:43:37
+* @Last Modified time: 2016-11-08 14:13:13
 */
 $NAV_HEGHT: 48px;
 body > .header {
@@ -85,4 +85,7 @@ body > .header > .nav > li a {
 }
 body>.header>.nav>li.res-btn {
     display: none;
+}
+body>.header>.nav {
+  margin-right: 0;
 }

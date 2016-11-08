@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-11-08 11:50:12
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-11-08 12:04:44
+* @Last Modified time: 2016-11-08 12:09:17
 */
 
 var gulp = require('gulp');
@@ -28,7 +28,7 @@ var css = [
   return path.join(THEME_ASSETS_PATH, '/css/', item);
 });
 
-var logins = [
+var allJs = [
   'js/lib.min.js',
   'js/login.min.js',
   'js/init.js'
@@ -36,7 +36,6 @@ var logins = [
   return path.join(THEME_ASSETS_PATH, item);
 });
 
-var allJs = libs.concat(logins);
 var _sourceFolders = 'js css scss'.split(' ');
 var sourceFolder = {};
 
