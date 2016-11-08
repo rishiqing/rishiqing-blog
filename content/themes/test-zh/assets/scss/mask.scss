@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-10-24 11:29:55
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-10-24 11:30:05
+* @Last Modified time: 2016-11-08 18:03:43
 */
 
 body.blurFont > div:not(.header, .popup) {
@@ -34,6 +34,16 @@ body .popup {
 body > .header > .nav {
     margin-right: 0;
 }
-body > .header .log-reg {
-    display: none;
+.popup {
+    background: url(../../images/loginDialog/login-bg.png);
+}
+.rememberPsw {
+    float: left;
+}
+.popup .popupContainer#pageRegLog footer .socializeLoginBtn.sQQ,
+.popup .popupContainer#pageRegLog footer .socializeLoginBtn.sWeixin,
+.popup .popupContainer#pageRegLog footer .socializeLoginBtn.sWeibo,
+.popup i.iconUser,
+.popup i.iconPsw {
+    background-image: url(../../images/loginDialog/login-sprite.png);
 }
