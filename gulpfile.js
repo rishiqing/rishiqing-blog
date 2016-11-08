@@ -2,7 +2,7 @@
 * @Author: Jiang Guoxi
 * @Date:   2016-11-08 11:50:12
 * @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-11-08 11:53:14
+* @Last Modified time: 2016-11-08 12:04:44
 */
 
 var gulp = require('gulp');
@@ -19,22 +19,6 @@ var THEME_ASSETS_PATH = path.join(__dirname, './content/themes/test-zh/assets');
 var DIST_CSS = path.join(THEME_ASSETS_PATH, './dist/css/');
 var DIST_JS = path.join(THEME_ASSETS_PATH, './dist/js/');
 var SCSS_DIR = path.join(THEME_ASSETS_PATH, './scss');
-
-// var libs = [
-//   'js/jQuery/jquery-1.11.3.min.js',
-//   'js/jQuery/jquery.cookie.js',
-//   'js/tipped.js',
-//   'js/application.js'
-// ].map(function (item) {
-//   return path.join(THEME_ASSETS_PATH, item);
-// });
-
-// // var css = [
-// //   'loginDialog.css',
-// //   'screen.css'
-// // ].map(function (item) {
-// //   return path.join(THEME_ASSETS_PATH, '/css/', item);
-// // });
 
 var css = [
   'public.min.css',
@@ -70,7 +54,6 @@ gulp.task("scss", function () {
 });
 
 gulp.task('cssmin', ['scss'], function () {
-  console.log(css);
    gulp.src(css)
    .pipe(sourcemaps.init())
    .pipe(cssmin())
