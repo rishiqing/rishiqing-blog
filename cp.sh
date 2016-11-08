@@ -13,12 +13,20 @@ copyCss () {
 
 copyJs () {
   echo "复制login.min.js文件中...";
+  cd "./content/themes/test-zh/assets/js/";
   # cd ./content/themes/test-zh/assets/js;
-  rm -rf "./content/themes/test-zh/assets/js/login.min.js";
-  cp "${rootPath}dist/js/login.min.js" "./content/themes/test-zh/assets/js/";
+  rm -rf "login.min.js" "lib.min.js" 2> /dev/null;
+
+  echo 'lib.min.js复制完成';
+  cp "${rootPath}dist/js/lib.min.js" "./";
+
+  cp "${rootPath}dist/js/login.min.js" "./";
+  echo "login.min.js复制完成";
+
+  cd - > /dev/null;
+
   # 下面的语句会吃掉压缩后的引号o(╯□╰)o
   # cat "${rootPath}dist/js/login.min.js" | xargs echo > "./content/themes/test-zh/assets/js/login.min.js"
-  echo "login.min.js复制完成";
 }
 copyHtml () {
   echo "复制头部、底部文件中...";
