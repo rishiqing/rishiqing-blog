@@ -128,8 +128,28 @@ body>.header>.log-reg {
   }
 }
 @media screen and (max-width: 720px) {
+  $paddingTop: 2px;
   #kf5-support-123456789.kf5-style3.kf5-right .kf5-support-btn {
     right: 0!important;
+  }
+  body #post_nav #post_prev {
+    padding: $paddingTop;
+    padding-right: 32px;
+    span::before {
+      top: -2px;
+      left: -28px;
+    }
+  }
+  body #post_nav #post_next {
+    padding: $paddingTop;
+    padding-left: 21px;
+    margin-bottom: 0;
+    span {
+      &::before {
+        top: -17px;
+        left: -3px;
+      }
+    }
   }
 }
 @media screen and (max-width: 1024px) and (min-width: 720px) {
