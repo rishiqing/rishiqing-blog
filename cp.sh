@@ -38,7 +38,6 @@ copyJs () {
 copyHtml () {
   echo "复制头部、底部文件中...";
   cd "./content/themes/test-zh/partials/";
-  # 头部文件因为logo路径的问题， 不能够直接拷过来
   rm -rf footer.hbs header-nav.hbs;
   cp ${rootPath}public/footerList2.php ./footer.hbs;
   cp ${rootPath}public/header-common.php ./header-nav.hbs;
