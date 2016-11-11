@@ -17,10 +17,11 @@ doCopy () {
   echo "";
   local filename=$(basename ${1});
   echo "复制${filename}文件中...";
-  rm -rf "${themePath}$1" 2> /dev/null;
-  # echo "删除" "${themePath}$1";
-  cp "${rootPath}$1" "${themePath}$2";
-  # echo "移动" "${rootPath}$1" "到" "${themePath}$2";
+  cd "$themePath";
+  # rm -rf "$1" 2> /dev/null;
+  echo "删除" "$1";
+  # cp "${rootPath}$1" "$2";
+  echo "移动" "${rootPath}$1" "到" "$2";
   echo "复制${filename}完成";
   echo "";
 }
@@ -37,8 +38,9 @@ copyHtml () {
   echo "复制头部、底部文件中...";
   cd "./content/themes/test-zh/partials/";
   # 头部文件因为logo路径的问题， 不能够直接拷过来
-  rm -rf footer.hbs;
+  rm -rf footer.hbs header-nav.hbs;
   cp ${rootPath}public/footerList2.php ./footer.hbs;
+  cp ${rootPath}public/header.php ./header-nav.hbs;
   echo "头部、底部html复制完成";
 }
 copyCss;
