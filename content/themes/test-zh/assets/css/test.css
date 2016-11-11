@@ -1,20 +1,75 @@
 /*
-* @Author: Jiang Guoxi
-* @Date:   2016-09-02 11:08:56
-* @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-10-24 10:06:12
+Error: Invalid GBK character "\xE5"
+        on line 126 of D:/rishiqing-blog/content/themes/test-zh/assets/scss/loginDialog.scss
+        from line 16 of D:/rishiqing-blog/content/themes/test-zh/assets/scss/test.scss
+
+121:     outline:none;
+122: 	width: 290px;
+123: 	height: 41px;
+124:     line-height: normal;
+125: 	margin:13px auto;
+126:     font-family: "Microsoft YaHei", "微软雅黑", "MicrosoftJhengHei", "华文细黑", "STHeiti,MingLiu";
+127:     -webkit-border-radius: 5px;
+128:     -o-border-radius: 5px;
+129:     -ms-border-radius: 5px;
+130:     -moz-border-radius: 5px;
+131:     border: 1px solid #b0b0b0;
+
+Backtrace:
+D:/rishiqing-blog/content/themes/test-zh/assets/scss/loginDialog.scss:126
+D:/rishiqing-blog/content/themes/test-zh/assets/scss/test.scss:16
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/util.rb:1300:in `rescue in block in find_encoding_error'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/util.rb:1297:in `block in find_encoding_error'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/util.rb:1296:in `each'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/util.rb:1296:in `each_with_index'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/util.rb:1296:in `find_encoding_error'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/util.rb:911:in `rescue in check_sass_encoding'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/util.rb:907:in `check_sass_encoding'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:436:in `check_encoding!'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:392:in `_to_tree'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:312:in `to_tree'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:326:in `block in visit_import'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `block in with_import'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:88:in `with_import'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:325:in `visit_import'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `block in visit'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `block in with_base'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:115:in `with_frame'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/stack.rb:79:in `with_base'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:160:in `visit'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `map'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:169:in `block in visit_children'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:181:in `with_environment'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:168:in `visit_children'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:188:in `visit_root'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/base.rb:36:in `visit'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:159:in `visit'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/visitors/perform.rb:8:in `visit'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:36:in `css_tree'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:381:in `_render_with_sourcemap'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/engine.rb:298:in `render_with_sourcemap'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `each'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/plugin.rb:82:in `update_stylesheets'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:340:in `watch_or_update'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/sass_scss.rb:51:in `process_result'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/base.rb:52:in `parse'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/lib/sass/exec/base.rb:19:in `parse!'
+D:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/sass-3.4.22/bin/sass:13:in `<top (required)>'
+D:/Ruby200-x64/bin/sass:23:in `load'
+D:/Ruby200-x64/bin/sass:23:in `<main>'
 */
-body .container {
-  background: #fcc;
-  color: #000; }
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid GBK character \"\xE5\"\A         on line 126 of D:/rishiqing-blog/content/themes/test-zh/assets/scss/loginDialog.scss\A         from line 16 of D:/rishiqing-blog/content/themes/test-zh/assets/scss/test.scss\A \A 121:     outline:none;\A 122: 	width: 290px;\A 123: 	height: 41px;\A 124:     line-height: normal;\A 125: 	margin:13px auto;\A 126:     font-family: \"Microsoft YaHei\", \"微软雅黑\", \"MicrosoftJhengHei\", \"华文细黑\", \"STHeiti,MingLiu\";\A 127:     -webkit-border-radius: 5px;\A 128:     -o-border-radius: 5px;\A 129:     -ms-border-radius: 5px;\A 130:     -moz-border-radius: 5px;\A 131:     border: 1px solid #b0b0b0;"; }
 
-/*
-* @Author: Jiang Guoxi
-* @Date:   2016-09-02 11:28:22
-* @Last Modified by:   Jiang Guoxi
-* @Last Modified time: 2016-09-02 11:28:24
-*/
-
-
-
-/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBQUE7Ozs7O0VBS0U7QUFFQSxlQUFXO0VBQ1QsVUFBVSxFQUFFLElBQUk7RUFDaEIsS0FBSyxFQUFFLElBQUk7O0FDVGY7Ozs7O0VBS0UiLCJzb3VyY2VzIjpbInRlc3Quc2NzcyIsInJlc2V0LnNjc3MiXSwibmFtZXMiOltdLCJmaWxlIjoidGVzdC5jc3MiLCJzb3VyY2VSb290IjoiL3NvdXJjZS8iLCJzb3VyY2VzQ29udGVudCI6WyIvKlxyXG4qIEBBdXRob3I6IEppYW5nIEd1b3hpXHJcbiogQERhdGU6ICAgMjAxNi0wOS0wMiAxMTowODo1NlxyXG4qIEBMYXN0IE1vZGlmaWVkIGJ5OiAgIEppYW5nIEd1b3hpXHJcbiogQExhc3QgTW9kaWZpZWQgdGltZTogMjAxNi0xMC0yNCAxMDowNjoxMlxyXG4qL1xyXG5ib2R5IHtcclxuICAuY29udGFpbmVyIHtcclxuICAgIGJhY2tncm91bmQ6ICNmY2M7XHJcbiAgICBjb2xvcjogIzAwMDtcclxuICB9XHJcbn1cclxuQGltcG9ydCAnLi9yZXNldC5zY3NzJztcclxuIiwiLypcclxuKiBAQXV0aG9yOiBKaWFuZyBHdW94aVxyXG4qIEBEYXRlOiAgIDIwMTYtMDktMDIgMTE6Mjg6MjJcclxuKiBATGFzdCBNb2RpZmllZCBieTogICBKaWFuZyBHdW94aVxyXG4qIEBMYXN0IE1vZGlmaWVkIHRpbWU6IDIwMTYtMDktMDIgMTE6Mjg6MjRcclxuKi9cclxuIl19 */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6IkFBQUE7Ozs7O0VBS0U7QUFFQSxlQUFXO0VBQ1QsVUFBVSxFQUFFLElBQUk7RUFDaEIsS0FBSyxFQUFFLElBQUk7O0FDVGY7Ozs7O0VBS0U7QUNMRjs7Ozs7RUFLRTtBQ0xGOzs7OztFQUtFO0FBQ0YsT0FBUTtFQUNOLE1BQU0sRUFBRSxLQUFLO0VBQ2IsUUFBUSxFQUFFLE1BQU07RUFDaEIsV0FBVyxFQUFFLElBQUk7RUFDakIsY0FBYyxFQUFFLElBQUk7RUFDcEIsZ0JBQWdCLEVBQUUsT0FBZ0I7RUFDbEMsZ0JBQWdCLEVBQUMsa0RBQWtEO0VBQ25FLGdCQUFnQixFQUFDLHlEQUF5RDtFQUMxRSxnQkFBZ0IsRUFBQyxxREFBcUQ7RUFDdEUsTUFBTSxFQUFFLENBQUM7RUFDVCxTQUFTLEVBQUUsQ0FBQztFQUNaLFVBQVUsRUFBRSxzQkFBcUI7RUFDakMsV0FBVyxFQUFFLEdBQUc7RUFDaEIsdUJBQVE7SUFDTixLQUFLLEVBQUUseUJBQXdCO0VBRWpDLFVBQUU7SUFDQSxLQUFLLEVBQUUsSUFBSTtJQUNYLFNBQVMsRUFBRSxJQUFJO0lBQ2YsYUFBYSxFQUFFLElBQUk7RUFFckIsYUFBTTtJQUNKLEtBQUssRUFBRSxNQUFNO0lBQ2IsTUFBTSxFQUFFLE1BQU07SUFDZCxRQUFRLEVBQUUsTUFBTTtJQUNoQixtQkFBTTtNQUNKLEtBQUssRUFBRSxHQUFHO01BQ1YsT0FBTyxFQUFFLFlBQVk7TUFDckIsVUFBVSxFQUFFLElBQUk7TUFDaEIsS0FBSyxFQUFFLElBQUk7TUFDWCxVQUFVLEVBQUUsVUFBVTtNQUN0QixZQUFZLEVBQUUsR0FBRztFQUluQixhQUFHO0lBQ0QsU0FBUyxFQUFFLElBQUk7SUFFZixrQkFBTztNQUNMLFVBQVUsRUFBRSxJQUFJOztBQUt4QixPQUFRO0VBQ04sVUFBVSxFQUFFLE1BQU07RUFDbEIsVUFBVSxFQUFFLE9BQU87RUFDbkIsVUFBVSxFQUFFLEtBQUs7RUFDakIsUUFBUSxFQUFFLFFBQVE7RUFDbEIsTUFBTSxFQUFFLElBQUk7RUFDWixXQUFXLEVBQUUsSUFBSTtFQUNqQixnQkFBUztJQUNQLHVDQUF1QztJQUN2QyxVQUFVLEVBQUUsT0FBTztJQUNuQixLQUFLLEVBQUUsT0FBTztJQUNkLFNBQVMsRUFBRSxJQUFJO0lBQ2YsT0FBTyxFQUFFLElBQUk7RUFFZixZQUFLO0lBQ0gsU0FBUyxFQUFFLElBQUk7SUFDZixXQUFXLEVBQUUsSUFBSTtJQUNqQixLQUFLLEVBQUUsT0FBTztJQUNkLEtBQUssRUFBRSx5QkFBcUI7SUFDNUIsTUFBTSxFQUFFLE9BQU8iLCJzb3VyY2VzIjpbInRlc3Quc2NzcyIsInJlc2V0LnNjc3MiLCJoZWFkZXItbmF2LnNjc3MiLCJmb290ZXIuc2NzcyJdLCJuYW1lcyI6W10sImZpbGUiOiJ0ZXN0LmNzcyIsInNvdXJjZVJvb3QiOiIvc291cmNlLyIsInNvdXJjZXNDb250ZW50IjpbIi8qXHJcbiogQEF1dGhvcjogSmlhbmcgR3VveGlcclxuKiBARGF0ZTogICAyMDE2LTA5LTAyIDExOjA4OjU2XHJcbiogQExhc3QgTW9kaWZpZWQgYnk6ICAgSmlhbmcgR3VveGlcclxuKiBATGFzdCBNb2RpZmllZCB0aW1lOiAyMDE2LTA5LTAyIDExOjUyOjA0XHJcbiovXHJcbmJvZHkge1xyXG4gIC5jb250YWluZXIge1xyXG4gICAgYmFja2dyb3VuZDogI2ZjYztcclxuICAgIGNvbG9yOiAjMDAwO1xyXG4gIH1cclxufVxyXG5AaW1wb3J0IFwicmVzZXRcIjtcclxuQGltcG9ydCBcImhlYWRlci1uYXZcIjtcclxuQGltcG9ydCBcImZvb3RlclwiO1xyXG5AaW1wb3J0IFwibG9naW5EaWFsb2dcIjtcclxuIiwiLypcclxuKiBAQXV0aG9yOiBKaWFuZyBHdW94aVxyXG4qIEBEYXRlOiAgIDIwMTYtMDktMDIgMTE6Mjg6MjJcclxuKiBATGFzdCBNb2RpZmllZCBieTogICBKaWFuZyBHdW94aVxyXG4qIEBMYXN0IE1vZGlmaWVkIHRpbWU6IDIwMTYtMDktMDIgMTE6Mjg6MjRcclxuKi9cclxuIiwiLypcclxuKiBAQXV0aG9yOiBKaWFuZyBHdW94aVxyXG4qIEBEYXRlOiAgIDIwMTYtMDktMDIgMTE6Mjc6MzlcclxuKiBATGFzdCBNb2RpZmllZCBieTogICBKaWFuZyBHdW94aVxyXG4qIEBMYXN0IE1vZGlmaWVkIHRpbWU6IDIwMTYtMDktMDIgMTE6Mjc6NDJcclxuKi9cclxuIiwiLypcclxuKiBAQXV0aG9yOiBKaWFuZyBHdW94aVxyXG4qIEBEYXRlOiAgIDIwMTYtMDktMDIgMTE6Mjc6NDVcclxuKiBATGFzdCBNb2RpZmllZCBieTogICBKaWFuZyBHdW94aVxyXG4qIEBMYXN0IE1vZGlmaWVkIHRpbWU6IDIwMTYtMDktMDIgMTE6MzE6NTFcclxuKi9cclxuLnJvd3MtNyB7XHJcbiAgaGVpZ2h0OiAyMzJweDtcclxuICBvdmVyZmxvdzogaGlkZGVuO1xyXG4gIHBhZGRpbmctdG9wOiAzNXB4O1xyXG4gIHBhZGRpbmctYm90dG9tOiA0MHB4O1xyXG4gIGJhY2tncm91bmQtY29sb3I6IHJnYigyLCAxNTgsIDIyNyk7XHJcbiAgYmFja2dyb3VuZC1pbWFnZTpsaW5lYXItZ3JhZGllbnQoLTE4MGRlZywgIzAwODJmZiAwJSwgIzAzOUNFMCAxMDAlKTtcclxuICBiYWNrZ3JvdW5kLWltYWdlOi13ZWJraXQtbGluZWFyLWdyYWRpZW50KC05MGRlZywgIzAwODJmZiAwJSwgIzAzOUNFMCAxMDAlKTtcclxuICBiYWNrZ3JvdW5kLWltYWdlOi1tcy1saW5lYXItZ3JhZGllbnQoLTkwZGVnLCAjMDA4MmZmIDAlLCAjMDM5Q0UwIDEwMCUpO1xyXG4gIGJvcmRlcjogMDtcclxuICBmb250LXNpemU6IDA7XHJcbiAgYm94LXNpemluZzogY29udGVudC1ib3ghaW1wb3J0YW50O1xyXG4gIG1hcmdpbi1sZWZ0OiAtNSU7XHJcbiAgYSwgc3BhbiB7XHJcbiAgICBjb2xvcjogcmdiYSgyNTUsIDI1NSwgMjU1LCAuODUpO1xyXG4gIH1cclxuICBoNHtcclxuICAgIGNvbG9yOiAjZmZmO1xyXG4gICAgZm9udC1zaXplOiAyMHB4O1xyXG4gICAgbWFyZ2luLWJvdHRvbTogMTlweDtcclxuICB9XHJcbiAgPiBkaXYge1xyXG4gICAgd2lkdGg6IDEwMjRweDtcclxuICAgIG1hcmdpbjogMCBhdXRvO1xyXG4gICAgb3ZlcmZsb3c6IGhpZGRlbjtcclxuICAgID4gZGl2IHtcclxuICAgICAgd2lkdGg6IDI1JTtcclxuICAgICAgZGlzcGxheTogaW5saW5lLWJsb2NrO1xyXG4gICAgICB0ZXh0LWFsaWduOiBsZWZ0O1xyXG4gICAgICBmbG9hdDogbGVmdDtcclxuICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDtcclxuICAgICAgcGFkZGluZy1sZWZ0OiAxMSU7XHJcbiAgICB9XHJcbiAgfVxyXG4gIHVsIHtcclxuICAgIGxpIHtcclxuICAgICAgZm9udC1zaXplOiAxNHB4O1xyXG5cclxuICAgICAgJiArIGxpIHtcclxuICAgICAgICBtYXJnaW4tdG9wOiAxNXB4O1xyXG4gICAgICB9XHJcbiAgICB9XHJcbiAgfVxyXG59XHJcbi5mb290ZXIge1xyXG4gIHRleHQtYWxpZ246IGNlbnRlcjtcclxuICBiYWNrZ3JvdW5kOiAjMDA2YmMwO1xyXG4gIG1hcmdpbi10b3A6IC00MHB4O1xyXG4gIHBvc2l0aW9uOiByZWxhdGl2ZTtcclxuICBoZWlnaHQ6IDQwcHg7XHJcbiAgbGluZS1oZWlnaHQ6IDQwcHg7XHJcbiAgLmNhcHRpb24ge1xyXG4gICAgLypiYWNrZ3JvdW5kLWNvbG9yOiByZ2IoMiwgMTU4LCAyMjcpOyovXHJcbiAgICBiYWNrZ3JvdW5kOiAjMDA5NWZmO1xyXG4gICAgY29sb3I6ICNmM2UyZTI7XHJcbiAgICBmb250LXNpemU6IDEycHg7XHJcbiAgICBwYWRkaW5nOiAyMHB4O1xyXG4gIH1cclxuICBzcGFuIHtcclxuICAgIGZvbnQtc2l6ZTogMTJweDtcclxuICAgIGxpbmUtaGVpZ2h0OiAzNnB4O1xyXG4gICAgY29sb3I6ICM2NkE0RDY7XHJcbiAgICBjb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwuMzcpO1xyXG4gICAgI2NvbG9yOiAjNjZBNEQ2O1xyXG4gIH1cclxufVxyXG4iXX0= */
