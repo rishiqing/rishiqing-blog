@@ -9,10 +9,13 @@ sourceCssPath='dist/css/';
 distJsPath='assets/js/';
 distCssPath='assets/css/';
 
+# 需要复制的js文件
+jsFile="lib.min.js login.min.js";
+
 [ "$1" ] && rootPath=$1;
 doCopy () {
   echo "";
-  filename=$(basename ${1});
+  local filename=$(basename ${1});
   echo "复制${filename}文件中...";
   rm -rf "${themePath}$1" 2> /dev/null;
   # echo "删除" "${themePath}$1";
@@ -26,8 +29,9 @@ copyCss () {
 }
 
 copyJs () {
-  doCopy "${sourceJsPath}lib.min.js" "${distJsPath}lib.min.js";
-  doCopy "${sourceJsPath}login.min.js" "${distJsPath}login.min.js";
+  for file in $jsFile; do
+    doCopy "${sourceJsPath}${file}" "${distJsPath}${file}";
+  done;
 }
 copyHtml () {
   echo "复制头部、底部文件中...";
