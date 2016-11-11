@@ -1,32 +1,26 @@
 #! /bin/bash
 # 用于将官网项目的公用css文件复制过来
 rootPath='d:/nginx-1.6.0/html/webpage/';
+themePath='./content/themes/test-zh/';
 [ "$1" ] && rootPath=$1;
+doCopy () {
+  echo "";
+  filename=$(basename ${1});
+  echo "复制${filename}文件中...";
+  rm -rf "${themePath}$1" 2> /dev/null;
+  # echo "删除" "${themePath}$1";
+  cp "${rootPath}$1" "${themePath}$2";
+  # echo "移动" "${rootPath}$1" "到" "${themePath}$2";
+  echo "复制${filename}完成";
+  echo "";
+}
 copyCss () {
-  echo "复制public.min.css文件中...";
-  rm -rf "./content/themes/test-zh/assets/css/public.min.css";
-  cp "${rootPath}dist/css/public.min.css" "./content/themes/test-zh/assets/css/public.min.css";
-  # 下面的语句会吃掉压缩后的引号o(╯□╰)o
-  # cat "${rootPath}dist/css/public.min.css" | xargs echo > "./content/themes/test-zh/assets/css/public.min.css"
-  echo "public.min.css文件复制完成";
+  doCopy "dist/css/public.min.css" "assets/css/public.min.css";
 }
 
 copyJs () {
-  echo "复制login.min.js文件中...";
-  cd "./content/themes/test-zh/assets/js/";
-  # cd ./content/themes/test-zh/assets/js;
-  rm -rf "login.min.js" "lib.min.js" 2> /dev/null;
-
-  echo 'lib.min.js复制完成';
-  cp "${rootPath}dist/js/lib.min.js" "./";
-
-  cp "${rootPath}dist/js/login.min.js" "./";
-  echo "login.min.js复制完成";
-
-  cd - > /dev/null;
-
-  # 下面的语句会吃掉压缩后的引号o(╯□╰)o
-  # cat "${rootPath}dist/js/login.min.js" | xargs echo > "./content/themes/test-zh/assets/js/login.min.js"
+  doCopy "dist/js/lib.min.js" "assets/js/lib.min.js";
+  doCopy "dist/js/login.min.js" "assets/js/login.min.js";
 }
 copyHtml () {
   echo "复制头部、底部文件中...";
