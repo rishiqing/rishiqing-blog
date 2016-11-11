@@ -24,6 +24,7 @@ doCopy () {
   echo "移动" "${rootPath}$1" "到" "$2";
   echo "复制${filename}完成";
   echo "";
+  cd -;
 }
 copyCss () {
   doCopy "${sourceCssPath}public.min.css" "${distCssPath}public.min.css";
@@ -40,11 +41,12 @@ copyHtml () {
   # 头部文件因为logo路径的问题， 不能够直接拷过来
   rm -rf footer.hbs header-nav.hbs;
   cp ${rootPath}public/footerList2.php ./footer.hbs;
-  cp ${rootPath}public/header.php ./header-nav.hbs;
+  cp ${rootPath}public/header-common.php ./header-nav.hbs;
   echo "头部、底部html复制完成";
+  cd -;
 }
 copyCss;
 copyJs;
 copyHtml;
-gulp cssmin;
-gulp scripts;
+# gulp cssmin;
+# gulp scripts;
