@@ -14,8 +14,8 @@
 │
 ├───css
 │       app.css           # 这个文件由scss/index.scss生成
-│       public.min.css    # 这两个文件直接使用脚本拷贝过来
-│       screen.css        # 这两个文件直接使用脚本拷贝过来
+│       public.min.css    # 这个文件直接使用脚本拷贝过来
+│       screen.css
 │
 ├───dist
 │   ├───css
@@ -27,7 +27,7 @@
 ├───fonts
 │
 ├───js
-│       init.js
+│       init.js        # 移动设备判断，及菜单下拉框脚本
 │       lib.min.js     # 这两个文件直接使用脚本拷贝过来
 │       login.min.js   # 这两个文件直接使用脚本拷贝过来
 │
