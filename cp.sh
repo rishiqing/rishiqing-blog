@@ -2,6 +2,11 @@
 # 用于将官网项目的公用css文件复制过来
 rootPath='d:/nginx-1.6.0/html/webpage/';
 themePath='./content/themes/test-zh/';
+sourceJsPath='dist/js/';
+sourceCssPath='dist/css/';
+distJsPath='assets/js/';
+distCssPath='assets/css/';
+
 [ "$1" ] && rootPath=$1;
 doCopy () {
   echo "";
@@ -15,12 +20,12 @@ doCopy () {
   echo "";
 }
 copyCss () {
-  doCopy "dist/css/public.min.css" "assets/css/public.min.css";
+  doCopy "${sourceCssPath}public.min.css" "${distCssPath}public.min.css";
 }
 
 copyJs () {
-  doCopy "dist/js/lib.min.js" "assets/js/lib.min.js";
-  doCopy "dist/js/login.min.js" "assets/js/login.min.js";
+  doCopy "${sourceJsPath}lib.min.js" "${distJsPath}lib.min.js";
+  doCopy "${sourceJsPath}login.min.js" "${distJsPath}login.min.js";
 }
 copyHtml () {
   echo "复制头部、底部文件中...";
