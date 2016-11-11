@@ -18,10 +18,10 @@ doCopy () {
   local filename=$(basename ${1});
   echo "复制${filename}文件中...";
   cd "$themePath";
-  # rm -rf "$1" 2> /dev/null;
-  echo "删除" "$1";
-  # cp "${rootPath}$1" "$2";
-  echo "移动" "${rootPath}$1" "到" "$2";
+  rm -rf "$1" 2> /dev/null;
+  # echo "删除" "$1";
+  cp "${rootPath}$1" "$2";
+  # echo "移动" "${rootPath}$1" "到" "$2";
   echo "复制${filename}完成";
   echo "";
   cd -;
@@ -48,5 +48,5 @@ copyHtml () {
 copyCss;
 copyJs;
 copyHtml;
-# gulp cssmin;
-# gulp scripts;
+gulp cssmin;
+gulp scripts;
