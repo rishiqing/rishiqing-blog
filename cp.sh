@@ -1,7 +1,7 @@
 #! /bin/bash
 # 用于将官网项目的公用css文件复制过来
 #rootPath='d:/nginx-1.6.0/html/webpage/';
-rootPath='~/project/company/webpage/';
+rootPath='/Users/Jason/project/company/webpage/';
 themePath='./content/themes/test-zh/';
 
 sourceJsPath='dist/js/';
@@ -39,7 +39,7 @@ copyJs () {
 copyHtml () {
   echo "复制头部、底部文件中...";
   cd "./content/themes/test-zh/partials/";
-  rm -rf footer.hbs header-nav.hbs;
+  rm footer.hbs header-nav.hbs 2> /dev/null;
   cp ${rootPath}public/footerList2.php ./footer.hbs;
   cp ${rootPath}public/header-common.php ./header-nav.hbs;
   echo "头部、底部html复制完成";
