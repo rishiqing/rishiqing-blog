@@ -1,5 +1,8 @@
-node_modules
+*.log
 .gulp-scss-cache
 .sass-cache
-*.sh
+node_modules
 knex-test
+content/images/
+*.db
+content/data/ghost-dev.db
