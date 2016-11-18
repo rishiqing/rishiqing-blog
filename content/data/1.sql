@@ -1,1 +1,0 @@
-select a.id, a.title from posts as a left join posts_tags b on a.id = b.post_id where pt.tag_id<>9 or pt.id is null order by a.updated_at desc;
