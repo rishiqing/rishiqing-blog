@@ -5,3 +5,4 @@ node_modules
 knex-test
 content/images/
 *.db
+content/data/ghost-dev.db
