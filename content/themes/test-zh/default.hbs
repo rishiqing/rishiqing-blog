@@ -40,8 +40,18 @@
           var s = document.getElementsByTagName("script")[0];
           s.parentNode.insertBefore(hm, s);
         })();
+        // 客服系统
+        window.NTKF_PARAM = {
+            siteid: 'kf_9458',               // 企业ID，为固定值，必填
+            settingid: 'kf_9458_1479119226945',  // 接待组ID，为固定值，必填
+            uid: '',                    // 用户ID，未登录可以为空，但不能给null，uid赋予的值显示到小能客户端上
+            uname: '',        // 用户名，未登录可以为空，但不能给null，uname赋予的值显示到小能客户端上
+            isvip: '0', // 是否为vip用户，0代表非会员，1代表会员，取值显示到小能客户端上
+            userlevel: '1',                    // 网站自定义会员级别，0-N，可根据选择判断，取值显示到小能客户端上
+            erpparam: 'abc'                      // erpparam为erp功能的扩展字段，可选，购买erp功能后用于erp功能集成
+        };
     </script>
-    <script src="//assets.kf5.com/supportbox/main.js" id="kf5-provide-supportBox" kf5-domain="chuangshikerui.kf5.com"></script>
+    <script src="//dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9458" async></script>
     {{!-- {{head-meta}} --}}
 
     {{! Ghost outputs important style and meta data with this tag }}
@@ -133,5 +143,12 @@
     </script>
     <script src = "{{asset "dist/js/all.min.js"}}"></script>
     {{> "loginDialog"}}
+    <link rel="stylesheet" href="{{asset "css/loginDialog.css"}}">
+    <div id="online-kf">在线咨询</div>
+    <script type="text/javascript">
+      document.getElementById('online-kf').addEventListener('click', function () {
+          window.NTKF.im_openInPageChat('kf_9458_1479119226945');
+      });
+    </script>
 </body>
 </html>
