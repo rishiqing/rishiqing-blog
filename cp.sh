@@ -4,14 +4,18 @@
 rootPath='/Users/Jason/project/company/webpage/';
 themePath='./content/themes/test-zh/';
 
-sourceJsPath='dist/js/';
-sourceCssPath='dist/css/';
+sourceJsPath='dist/blog/js/';
+sourceCssPath='dist/blog/css/';
 
 distJsPath='assets/js/';
 distCssPath='assets/css/';
 
 # 需要复制的js文件
 jsFile="lib.min.js login.min.js";
+# jsFile=`ls $rootPath/$sourceJsPath`;
+# jsFile=${jsFile%%\ *};
+# echo ${jsFile[0]};
+# exit 0;
 
 [ "$1" ] && rootPath=$1;
 doCopy () {
@@ -32,9 +36,11 @@ copyCss () {
 }
 
 copyJs () {
-  for file in $jsFile; do
-    doCopy "${sourceJsPath}${file}" "${distJsPath}${file}";
-  done;
+  doCopy "${sourceJsPath}${jsFile[]}" "${distJsPath}${file}";
+
+  # for file in $jsFile; do
+  #   doCopy "${sourceJsPath}${file}" "${distJsPath}${file}";
+  # done;
 }
 copyHtml () {
   echo "复制头部、底部文件中...";
