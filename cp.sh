@@ -11,11 +11,8 @@ distJsPath='assets/js/';
 distCssPath='assets/css/';
 
 # 需要复制的js文件
-jsFile="lib.min.js login.min.js";
-# jsFile=`ls $rootPath/$sourceJsPath`;
-# jsFile=${jsFile%%\ *};
-# echo ${jsFile[0]};
-# exit 0;
+# jsFile="lib.min.js login.min.js";
+jsFile="lib.js login.js";
 
 [ "$1" ] && rootPath=$1;
 doCopy () {
@@ -32,7 +29,7 @@ doCopy () {
   cd -;
 }
 copyCss () {
-  doCopy "${sourceCssPath}public.min.css" "${distCssPath}public.min.css";
+  doCopy "${sourceCssPath}public.css" "${distCssPath}public.min.css";
 }
 
 copyJs () {
