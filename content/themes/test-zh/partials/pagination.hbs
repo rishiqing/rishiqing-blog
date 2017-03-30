@@ -1,4 +1,35 @@
-{{#if prev}}
+{{#if next }}
+<button class = 'show-more-article' id = 'show-more-article'>查看更多</button>
+<script type="text/javascript">
+window.addEventListener('load', function () {
+    var page = 1;
+    var $list = $('.article-list');
+    var getUrl = function () {
+      return location.pathname + 'page/' + page + '/';
+    };
+    var $more = $('#show-more-article');
+    var disableBtn = function () {
+      $more.text('没有更多内容了').attr('disabled', true);
+    };
+    $more.click(function () {
+      var url = getUrl();
+      $.get(url).done(function (res) {
+        page++;
+        var match = res.match(/<ul class\s?=\s?['"]article-list['"]>[\s\S]*?<\/ul>/g);
+        if (match) {
+          var $content = $(match[0]);
+          $list.append($content.children());
+        } else {
+          disableBtn();
+        }
+      }).fail(function () {
+        disableBtn();
+      });
+    });
+});
+</script>
+{{/if}}
+{{!-- {{#if prev}}
     <a href="{{page_url prev}}" class="btn nav prev">
       <span aria-hidden="true" data-icon=">"></span>
       上一页
@@ -9,4 +40,4 @@
       <span aria-hidden="true" data-icon=">"></span>
       下一页
     </a>
-{{/if}}
+{{/if}} --}}
