@@ -12,45 +12,49 @@
     height: 476px;
     margin: 0 auto;
     margin-top: $NAV_HEGHT;
+    height: 260px;
+    background-image: url('../../images/banner/-4.png');
+    background-size: cover;
+    background-position: center;
     // margin-top: 61px;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
+    // overflow: hidden;
+    // position: relative;
+    // z-index: 1;
 }
-.banner-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 10000;
-}
-.banner-bg > img {
-    position: absolute;
-    z-index: -2;
-    top: 0;
-}
-.banner-bg > img.left {
-    left: 0;
-}
-.banner-bg > img.right {
-    right: 0;
-    z-index: -1;
-}
-.banner-bg > .wrap {
-    width: 911px;
-    margin: 0 auto;
-    position: relative;
-    box-sizing: border-box;
-    padding-left: 92px;
-}
-.banner-bg > .wrap > img {
-    position: absolute;
-    left: -1px;
-    /*top: -18px;*/
-    top: -2px;
-}
+// .banner-bg::before {
+//     content: '';
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     bottom: 0;
+//     z-index: 10000;
+// }
+// .banner-bg > img {
+//     position: absolute;
+//     z-index: -2;
+//     top: 0;
+// }
+// .banner-bg > img.left {
+//     left: 0;
+// }
+// .banner-bg > img.right {
+//     right: 0;
+//     z-index: -1;
+// }
+// .banner-bg > .wrap {
+//     width: 911px;
+//     margin: 0 auto;
+//     position: relative;
+//     box-sizing: border-box;
+//     padding-left: 92px;
+// }
+// .banner-bg > .wrap > img {
+//     position: absolute;
+//     left: -1px;
+//     /*top: -18px;*/
+//     top: -2px;
+// }
 
 
 
