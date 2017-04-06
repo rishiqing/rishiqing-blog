@@ -4,7 +4,7 @@
 * @Last Modified by:   Jiang Guoxi
 * @Last Modified time: 2016-11-08 14:13:13
 */
-$NAV_HEGHT: 48px;
+$NAV_HEGHT: 60px;
 body > .header {
     position: fixed;
     top: 0;
@@ -32,7 +32,7 @@ body > .header > .logo  img {
     width: 20px;
     height: 26px;
     float: left;
-    margin-top: 10px;
+    margin-top: 16px;
     // vertical-align: -14%;
 }
 body > .header > .logo   img  + h3{

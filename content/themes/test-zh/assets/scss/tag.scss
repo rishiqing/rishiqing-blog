@@ -7,6 +7,7 @@ body > header > .tags {
   font-size: 0;
   li {
     float: left;
+
     a {
       color: inherit;
       border-radius:100px;
@@ -17,6 +18,12 @@ body > header > .tags {
       border: 1px solid #0082ff;
       display: inline-block;
       color: #1089ff;
+      &:hover {
+        background-image: linear-gradient(90deg, #77E7FC 0%, #136CFF 100%);
+        color: #fff;
+        // border: none;
+        border-color: #fff;
+      }
     }
     &:last-child {
       // @media screen and (max-width: 468px) {
@@ -99,6 +106,8 @@ ul.article-list li article > div.text {
 }
 ul.article-list li article  div.text a {
     color: #666;
+    letter-spacing: 0.8px;
+    line-height: 20px;
 }
 ul.article-list li article  div.text a.readmore {
     position: absolute;
