@@ -12,7 +12,6 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     margin: 0;
     padding: 0;
     border: 0;
-    font: inherit;
     font-size: 100%;
     vertical-align: baseline
 }
@@ -54,11 +53,8 @@ article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, 
     font-style: normal
 }
 
-body, p {
-    font-family: PingFang, "Helvetica Neue", Helvetica, "Hiragino Sans GB", STHeitiSC-Light, SimHei, "Microsoft YaHei", "\\5FAEÈíÑÅºÚ", Arial, sans-serif;
-}
+
 body .btn, body>header h1, body article header h1, body>footer .details h4, body .post-footer .details h4, body #share_modal header a.close, body.user article.feature h1 a {
-    font-family: PingFang, "Helvetica Neue", Helvetica, "Hiragino Sans GB", STHeitiSC-Light, SimHei, "Microsoft YaHei", "\\5FAEÈíÑÅºÚ", Arial, sans-serif;
 }
 body.serif {
     font-family: "Merriweather", "Georgia", "Times New Roman", serif
