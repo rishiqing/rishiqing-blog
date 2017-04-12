@@ -30,7 +30,7 @@ var css = [
 
 var allJs = [
   'js/lib.min.js',
-  'js/login.min.js',
+  'js/login.js',
   'js/init.js'
 ].map(function (item) {
   return path.join(THEME_ASSETS_PATH, item);
