@@ -52,6 +52,7 @@
         };
     </script>
     <script src="//dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9458" async></script>
+
     {{!-- {{head-meta}} --}}
 
     {{! Ghost outputs important style and meta data with this tag }}
@@ -161,7 +162,9 @@
             if ($avatar && $avatar.length) {
               $avatar.find('.avatarImage').css('background-image','url("'+AVATAR_URL+'")');
               $avatar.find('.avatarName').text(data.realName);
-              $avatar.addClass('showing');
+              $avatar.addClass('showing').click(function () {
+                location.href = '/app';
+              });
             }
        });
     });

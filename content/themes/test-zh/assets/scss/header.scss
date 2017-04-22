@@ -89,3 +89,36 @@ body>.header>.nav>li.res-btn {
 body>.header>.nav {
   margin-right: 0;
 }
+.header #logAvatar {
+  float: right;
+  margin-right: 32px;
+  height: 30px;
+  border-radius: 4px;
+  line-height: 30px;
+  cursor: pointer;
+  display: none;
+  margin-top: 14px;
+  margin-right: -4px;
+  margin-left: 12px;
+  &.showing {
+    display: block;
+  }
+}
+.header #logAvatar .avatarName {
+  max-width: 100px;
+  height: 30px;
+  line-height: 30px;
+  float: right;
+  margin-left: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.header #logAvatar .avatarImage {
+  width: 30px;
+  height: 30px;
+  float: right;
+  -webkit-background-size: contain;
+  background-size: contain;
+}
