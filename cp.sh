@@ -33,7 +33,9 @@ copyCss () {
 }
 
 copyJs () {
-  doCopy "${sourceJsPath}${jsFile[]}" "${distJsPath}${file}";
+  # doCopy "${sourceJsPath}${jsFile[]}" "${distJsPath}${file}";
+  doCopy "${sourceJsPath}lib.js" "${distJsPath}${file}";
+  doCopy "${sourceJsPath}login.js" "${distJsPath}${file}";
 
   # for file in $jsFile; do
   #   doCopy "${sourceJsPath}${file}" "${distJsPath}${file}";
