@@ -4,7 +4,7 @@
 * @Last Modified by:   Jiang Guoxi
 * @Last Modified time: 2016-11-08 14:13:13
 */
-$NAV_HEGHT: 48px;
+$NAV_HEGHT: 60px;
 body > .header {
     position: fixed;
     top: 0;
@@ -32,7 +32,7 @@ body > .header > .logo  img {
     width: 20px;
     height: 26px;
     float: left;
-    margin-top: 10px;
+    margin-top: 16px;
     // vertical-align: -14%;
 }
 body > .header > .logo   img  + h3{
@@ -88,4 +88,37 @@ body>.header>.nav>li.res-btn {
 }
 body>.header>.nav {
   margin-right: 0;
+}
+.header #logAvatar {
+  float: right;
+  margin-right: 32px;
+  height: 30px;
+  border-radius: 4px;
+  line-height: 30px;
+  cursor: pointer;
+  display: none;
+  margin-top: 14px;
+  margin-right: -4px;
+  margin-left: 12px;
+  &.showing {
+    display: block;
+  }
+}
+.header #logAvatar .avatarName {
+  max-width: 100px;
+  height: 30px;
+  line-height: 30px;
+  float: right;
+  margin-left: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.header #logAvatar .avatarImage {
+  width: 30px;
+  height: 30px;
+  float: right;
+  -webkit-background-size: contain;
+  background-size: contain;
 }

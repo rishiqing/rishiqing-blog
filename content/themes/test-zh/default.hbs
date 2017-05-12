@@ -52,6 +52,7 @@
         };
     </script>
     <script src="//dl.ntalker.com/js/xn6/ntkfstat.js?siteid=kf_9458" async></script>
+
     {{!-- {{head-meta}} --}}
 
     {{! Ghost outputs important style and meta data with this tag }}
@@ -145,6 +146,28 @@
     {{> "loginDialog"}}
     <script type="text/javascript">
     $('.nav > .nav-blog > a').addClass('active');
+    window.addEventListener('load', function () {
+      var AVATAR_HAS = false;
+      $.post('/task/login/authAjax')
+       .success(function (data) {
+            if (!data.success) return;
+            var AVATAR_URL = "https://rishiqing-avatar.oss-cn-beijing.aliyuncs.com";
+            if (data.hasAvatar) {
+              AVATAR_URL = AVATAR_URL + '/_small_avatar' + data.id + '.png';
+            } else {
+              AVATAR_URL = 'https://rishiqing-images.oss-cn-beijing.aliyuncs.com/avatar/_small_avatar1.png'
+            }
+            $('.log-reg').hide();
+            var $avatar = $('#logAvatar');
+            if ($avatar && $avatar.length) {
+              $avatar.find('.avatarImage').css('background-image','url("'+AVATAR_URL+'")');
+              $avatar.find('.avatarName').text(data.realName);
+              $avatar.addClass('showing').click(function () {
+                location.href = '/app';
+              });
+            }
+       });
+    });
     </script>
 </body>
 </html>
