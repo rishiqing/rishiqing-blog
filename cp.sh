@@ -1,11 +1,11 @@
 #! /bin/bash
 # 用于将官网项目的公用css文件复制过来
 #rootPath='d:/nginx-1.6.0/html/webpage/';
-rootPath='/Users/Jason/project/company/webpage/';
+rootPath='D:/workspace/webpage/';
 themePath='./content/themes/test-zh/';
 
-sourceJsPath='dist/blog/js/';
-sourceCssPath='dist/blog/css/';
+sourceJsPath='dist/js/';
+sourceCssPath='dist/css/';
 
 distJsPath='assets/js/';
 distCssPath='assets/css/';

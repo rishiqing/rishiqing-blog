@@ -198,6 +198,19 @@ function getPostSchema(metaData, data) {
     };
     return trimSchema(schema);
 }
+function getPostBear(metaData) {
+    var bear = {
+        '@context': 'https://ziyuan.baidu.com/contexts/cambrian.jsonld',
+        '@id': metaData.url,
+        'appid': '1553049997856913',
+        'title': metaData.metaTitle,
+        'pubDate': metaData.publishedDate.split('.')[0],
+        'upDate': metaData.modifiedDate.split('.')[0],
+        'image': metaData.coverImage,
+        'description': metaData.metaDescription
+    };
+    return trimSchema(bear);
+}
 
 function getTagSchema(metaData, data) {
     var schema = {
@@ -252,6 +265,11 @@ function chooseSchema(metaData, context, data) {
         return getAuthorSchema(metaData, data);
     }
 }
+function getBear(metaData, context) {
+    if (context === 'post') {
+        return getPostBear(metaData);
+    }
+}
 
 function finaliseStructuredData(structuredData, tags, head) {
     _.each(structuredData, function (content, property) {
@@ -272,6 +290,13 @@ function finaliseStructuredData(structuredData, tags, head) {
 
 function finaliseSchema(schema, head) {
     head.push('<script type="application/ld+json">\n' + JSON.stringify(schema, null, '    ') +
+            '\n    </script>\n'
+    );
+    return head;
+}
+
+function finaliseBear(bear, head) {
+    head.push('<script type="application/ld+json">\n' + JSON.stringify(bear, null, '    ') +
             '\n    </script>\n'
     );
     return head;
@@ -300,6 +325,7 @@ ghost_head = function (options) {
         props = {},
         structuredData,
         schema,
+        BearPaw,
         title = hbs.handlebars.Utils.escapeExpression(blog.title),
         context = self.context ? self.context[0] : null,
         contextObject = _.cloneDeep(self[context] || blog);
@@ -339,12 +365,14 @@ ghost_head = function (options) {
                 structuredData = getStructuredData(metaData);
                 // Create context driven JSONLD object
                 schema = chooseSchema(metaData, context, self);
+                BearPaw = getBear(metaData, context);
                 head.push('');
                 // Formats structured data and pushes to head array
                 finaliseStructuredData(structuredData, tags, head);
                 head.push('');
                 // Formats schema script/JSONLD data and pushes to head array
                 finaliseSchema(schema, head);
+                finaliseBear(BearPaw, head);
             }
 
             if (metaData.clientId && metaData.clientSecret) {
