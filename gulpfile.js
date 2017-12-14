@@ -11,7 +11,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
-var scss = require('gulp-ruby-sass');
+var scss = require('gulp-sass');
 var del = require('del');
 var cssmin = require('gulp-clean-css');
 

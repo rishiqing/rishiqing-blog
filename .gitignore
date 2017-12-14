@@ -1,6 +1,7 @@
 *.log
 .gulp-scss-cache
 .sass-cache
+.idea
 node_modules
 knex-test
 content/images/
