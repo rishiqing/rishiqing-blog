@@ -11,7 +11,7 @@ var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var imagemin = require('gulp-imagemin');
 var sourcemaps = require('gulp-sourcemaps');
-var scss = require('gulp-ruby-sass');
+var sass = require('gulp-sass');
 var del = require('del');
 var cssmin = require('gulp-clean-css');
 
@@ -44,16 +44,16 @@ _sourceFolders.forEach(function (item) {
 });
 
 gulp.task("scss", function () {
-  return scss(path.join(sourceFolder.scss, '/index.scss'), {
-      sourcemap: true
-    })
+  return gulp.src(path.join(sourceFolder.scss, '/index.scss'))
+    .pipe(sourcemaps.init())
+    .pipe(sass().on('error', sass.logError))
     .pipe(concat('app.css'))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.join(sourceFolder.css)));
 });
 
 gulp.task('cssmin', ['scss'], function () {
-   gulp.src(css)
+  gulp.src(css)
    .pipe(sourcemaps.init())
    .pipe(cssmin())
    .pipe(concat('index.min.css'))
