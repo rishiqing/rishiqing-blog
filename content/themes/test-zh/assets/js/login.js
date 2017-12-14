@@ -1,3 +1,4 @@
+window.isDev = true;
 /**
  * Created by zjy on 2015/5/6.
  * edit By wangLei on 2016/8/24.
@@ -572,3 +573,399 @@ function SoonInDialog (parent) {
     }
   }
 }
+!function () {
+  var BASE_URL = '/task';
+  !function(a,b){function d(a){var e,c=b.createElement("iframe"),d="https://open.weixin.qq.com/connect/qrconnect?appid="+a.appid+"&scope="+a.scope+"&redirect_uri="+a.redirect_uri+"&state="+a.state+"&login_type=jssdk";d+=a.style?"&style="+a.style:"",d+=a.href?"&href="+a.href:"",c.src=d,c.frameBorder="0",c.allowTransparency="true",c.scrolling="no",c.width="179px",c.height="179px",e=b.getElementById(a.id),e.innerHTML="",e.appendChild(c)}a.WxLogin=d}(window,document);
+  var joinNewTeam = "/team/joinNewTeam";
+  var SPRING_CHECK = "/j_spring_security_check";
+  var usernameRegistered = "/reg/usernameRegistered";
+  var REG_URL = "/reg/register";
+  var wxAuth = "/weixinOauth/toLogin";
+  var qqAuth = "/qqOauth/toLogin";
+  var sinaAuth = "/sinaOauth/toLogin";
+  var phoneRegistered = "/reg/phoneRegistered";
+  var validateSmsWithPhone = "/reg/validateSmsWithPhone";
+  var emai = [
+    '@163.com',
+    '@126.com',
+    '@gmail.com',
+    '@qq.com',
+    '@hotmail.com',
+    '@sina.com',
+    '@sina.cn',
+    '@sohu.com',
+    '@139.com',
+    '@tom.cn',
+    '@yeah.net',
+    '@sogou.com',
+    '@21cn.com',
+    '@yahoo.com.cn',
+    '@yahoo.cn',
+    '@aol.com'
+  ];
+  var emailMap = {
+    '@163.com': 'http://mail.163.com',
+    '@126.com': 'http://mail.126.com',
+    '@gmail.com': 'https://mail.google.com',
+    '@qq.com': 'https://mail.qq.com',
+    '@hotmail.com': 'http://www.hotmail.com',
+    '@sina.com': 'http://mail.sina.com.cn',
+    '@sohu.com': 'http://mail.sohu.com',
+    '@139.com': 'http://mail.10086.cn',
+    '@tom.com': 'http://web.mail.tom.com',
+    '@yeah.net': 'http://www.yeah.net',
+    '@sogou.com': 'http://mail.sogou.com',
+    '@21cn.com': 'http://mail.21cn.com',
+    '@yahoo.com': 'http://mail.yahoo.com',
+    '@aol.com': 'http://mail.aol.com'
+  };
+  var emailStr = /^([\.a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/; // 邮箱验证
+  // var phoneStr = /^1[3|4|5|8][0-9]\d{8}$/; // 手机号验证
+  // var phoneStr = /^1[3|4|5|7|8][0-9]\d{8}$/; // 手机号验证
+  var phoneStr = /^\d{11}$/;
+
+  String.prototype.includes = String.prototype.includes || function (str) {
+    return this.indexOf(str) !== -1;
+  };
+
+  var template = '';
+
+  var $body = $('body');
+  $('.login-by-MM').click(function () {
+    $body.addClass('show-mask');
+  });
+  $(document).click(function (e) {
+    var $tar = $(e.target);
+    if ($tar.hasClass('login-by-MM')) return;
+    if ($tar.hasClass('mail-item')) return;
+    if (!$tar.parents('.mask-box').length) {
+      $body.removeClass('show-mask');
+    }
+  });
+
+
+
+  // var RegDialog = function () {};
+  function RegDialog () {}
+
+  RegDialog.prototype = {
+    initReg: function ($par) {
+      this.$root = $par;
+      this.$user = $par.find('.email');
+      this.$pass = $par.find('.password');
+      this.$name = $par.find('.username');
+      this.$msg = $par.find('.error-msg');
+      this.$mail = $par.find('.sign-up-mail');
+      this.$phone = $par.find('.sign-up-phone');
+      this.$emailList = $par.find('.email-list');
+      this.$regBtn = $par.find('.sign-up-btn');
+
+      this.bindEvents();
+
+      // this.initForPhone();
+
+      this.getWXIMG();
+      // this.startCount();
+    },
+    setEmailList: function (html) {
+      this.$emailList.html(html);
+      this.setActive();
+    },
+    clearEmailList: function () {
+      this.$emailList.empty();
+      this.$emailList[0].activeEle = null;
+    },
+    setActive: function ($tar) {
+      var $el = this.$emailList;
+      if (!$tar || ($tar && $tar.length === 0)) {
+        $tar = $el.find('li:first');
+      }
+      $tar.addClass('active');
+      if ($el[0].activeEle) {
+        $el[0].activeEle.removeClass('active');
+      }
+      $el[0].activeEle = $tar;
+    },
+    bindEvents: function () {
+      this.bindKeyUpEvents();
+      this.bindKeyDownEvents();
+      this.bindRegBtnClickEvents();
+      this.bindEmailListClickEvents();
+      this.bindWXevents();
+    },
+    bindKeyUpEvents: function () {
+      var _this = this;
+      this.$user.keyup(function (e) {
+        var $this = $(this), val = $this.val(),
+            index = val.indexOf('@'),
+            suffix = val.slice(index),
+            html = '',
+            $emailList = _this.$emailList;
+
+        if (index === -1 || index === 0) return _this.clearEmailList();
+        if ([38, 13, 40].indexOf(e.keyCode) !== -1) return;
+        emai.filter(function (item) {
+          return item.includes(suffix);
+        }).forEach(function (item) {
+          html += '<li class = "mail-item">' + val.slice(0, index) + item + '</li>';
+        });
+        _this.setEmailList(html);
+      });
+    },
+    prevent: function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
+    bindKeyDownEvents: function () {
+      var _this = this;
+      this.$user.keydown(function (e) {
+        var code = e.keyCode, $list = _this.$emailList, $active = $list[0].activeEle, $tar = null;
+        if (!$active) return;
+        if (code === 13 && $active) {
+          _this.isSelectItem = true; // 状态判断
+          // _this.prevent(e);
+          $active.click();
+          return;
+        }
+        if (code !== 38 && code !== 40) return;
+        if (code === 38) { // up
+          $tar = $active.index() === 0 ? $list.find('li:last') : $active.prev('li');
+        }
+        if (code === 40) { // down
+          $tar = $active.index() === $list[0].childElementCount ? $list.find('li:first') : $active.next('li');
+        }
+
+        _this.setActive($tar);
+        _this.prevent(e);
+
+        $list.animate({
+          scrollTop: $tar.index() * 26 + 'px'
+        }, 0);
+      });
+
+
+      this.$root.find('ul:first input').keydown(function(e) {
+        if (e.keyCode === 13 && _this.isSelectItem === false) {
+          _this.$regBtn.click();
+        } else {
+          _this.isSelectItem = false;
+        }
+      });
+    },
+    bindEmailListClickEvents: function () {
+      var _this = this;
+      this.$emailList.on('click', 'li', function (e) {
+        var $target = $(e.target), $list = _this.$emailList, $email = _this.$user;
+        $email.val($target.text());
+        _this.clearEmailList();
+      });
+      this.$user.blur(function () {
+        setTimeout(function () {
+          _this.clearEmailList();
+        }, 10);
+      });
+    },
+    bindRegBtnClickEvents: function () {
+      var _this = this;
+      this.$regBtn.click(function () {
+        var $user = _this.$user,
+          $pass = _this.$pass,
+          $name = _this.$name,
+          $msg = _this.$msg;
+        var username = $user.val(), password = $pass.val(), realName = $name.val();
+        if (!emailStr.test(username) && !phoneStr.test(username)) {
+          return _this.showErrorMsg('用户名错误， 请输入邮箱或手机号');
+        }
+        if (password.length < 6) {
+          return _this.showErrorMsg('密码不能小于6位');
+        }
+        if (realName === '') {
+          return _this.showErrorMsg('请输入您的真实姓名');
+        }
+        _this.showErrorMsg('');
+        if (phoneStr.test(username)) {
+          _this.setForPhone(username);
+        } else {
+          _this.setForMail(username);
+        }
+      });
+    },
+    showErrorMsg: function (err) {
+      this.$msg.html(err);
+    },
+    clearMsg: function () {
+      this.$msg.html('');
+    },
+    setForPhone: function (username) {
+      var _this = this;
+      $.post(BASE_URL + phoneRegistered, { phoneNumber: username })
+        .done(function (res) {
+          if (res.data.registered) {
+            return _this.showErrorMsg('该手机号已存在');
+          }
+          _this.showPhone(username);
+        })
+        .fail(function () {
+          _this.showErrorMsg('手机号验证失败， 请重试');
+        });
+    },
+    setForMail: function (username) {
+      var _this = this;
+      $.post(
+        BASE_URL + REG_URL,
+        {
+          username: username,
+          password: _this.$pass.val(),
+          realName: _this.$name.val(),
+          createdByClient: "web"
+        })
+        .done(function (res) {
+          if (res.success) {
+            return _this.showMail(username);
+          }
+          _this.showErrorMsg('注册失败，请再次尝试');
+        })
+        .fail(function () {
+          _this.showErrorMsg('注册失败，请再次尝试');
+        });
+    },
+    showMail: function (username) {
+      this.$root.addClass('show-mail');
+      this.$root.find('.email-addr').text(username);
+      this.$root.find('.login-mail').attr('href', emailMap[username.slice(username.indexOf('@'))]);
+    },
+    showPhone: function (username) {
+      this.initForPhone(username);
+      this.startCount(username);
+      this.$root.addClass('show-phone');
+      this.$root.find('.phone-number').val(username);
+    },
+    initForPhone: function (username) {
+      this.$reSend = this.$root.find('.re-send');
+      // this.$msg = this.$root.find('.sign-up-phone > span');
+      this.timer = null;
+      // this.$confirm = this.$root.find('.confirm');
+      this.$valiCode = this.$root.find('.validate-code');
+      this.bindConfirmClickEvents(username);
+      this.bindReSendClickEvents();
+    },
+    bindConfirmClickEvents: function (username) {
+      var _this = this;
+      this.$root.find('.confirm').click(function () {
+        var code = _this.$valiCode.val();
+        if (!/^[0-9]{4}$/.test(code)) return _this.showErrorMsg('请输入有效的4位数字验证码');
+        _this.validateCode(username, code);
+      });
+    },
+
+    validateCode: function (username, code) {
+      var _this = this;
+      $.post(
+        BASE_URL + validateSmsWithPhone,
+        {
+          phone: username, valicode: code
+        }
+        )
+      .done(function (res) {
+        if (!res.success) return _this.showErrorMsg('验证失败， 请重试');
+        _this.signUpByPhone(username);
+      })
+      .fail(function () {
+        _this.showErrorMsg('注册失败， 请重试');
+      });
+    },
+    signUpByPhone: function (username) {
+      var _this = this;
+      $.post(
+        BASE_URL + REG_URL,
+        {
+          username: username + '@rishiqing.com',
+          phoneNumber: username,
+          password: _this.$pass.val(),
+          realName: _this.$name.val(),
+          client: "webByPhone"
+        }
+        )
+      .done(function (res) {
+        if (!res.success) return _this.showErrorMsg('注册失败， 请重试');
+        location.href = '/app';
+      })
+      .fail(function () {
+        _this.showErrorMsg('注册失败， 请重试');
+      });
+    },
+    bindReSendClickEvents: function () {
+      var _this = this;
+      this.$reSend.click(function () {
+        _this.startCount(_this.$user.val());
+      });
+    },
+    startCount: function (username) {
+      if (this.timer) return;
+      var number = 60, _this = this;
+      this.sendCode(username, function (err) {
+        if (err !== null) return;
+        _this.$reSend.text(number--).addClass('disable');
+        _this.timer = setInterval(function () {
+          if (number === 0) return _this.endCount();
+          _this.$reSend.text(number--);
+        }, 1000);
+      });
+    },
+    endCount: function () {
+      this.$reSend.removeClass('disable').text('重发');
+      clearInterval(this.timer);
+      this.timer = null;
+    },
+    sendCode : function (username, _cb) {
+      var cb = _cb || function () {};
+      var visualMacCode = "qc:qc:qc:qc";
+      var sendCellphoneCode = "/reg/sendCellphoneValidataCode";
+      var _this = this;
+      $.ajax({
+        url: BASE_URL + sendCellphoneCode, type: 'POST', data: { phone: username, phoneMac: visualMacCode },
+        success: function (data) {
+          if (!data.success) {
+            if (data.errors) {
+              _this.showErrorMsg(data.errors);
+              cb(data);
+            } else {
+              _this.showErrorMsg("发送失败，请稍候重试.");
+              cb(data);
+            }
+          } else {
+            _this.showErrorMsg("验证码发送成功");
+            _this.showErrorMsg("");
+            cb(null);
+          }
+        },
+        error: function (err) {
+          _this.showErrorMsg("验证码发送失败,请稍候重试");
+          cb(err);
+        }
+      })
+    },
+    getWXIMG: function () {
+      new WxLogin({
+        id:"login_container",
+        appid: "wxf39b085a4d6ff3c7",
+        scope: "snsapi_login",
+        redirect_uri: "https://www.rishiqing.com/task/weixinOauth/afterLogin",
+        state: "null_null_null_empty_empty_empty",
+        style: "",
+        href: "https://rsqsystem.oss-cn-beijing.aliyuncs.com/weixin/wx2ma.css"
+      });
+    },
+    bindWXevents: function () {
+      var _this = this;
+      $('.refresh').on('click', '.r', function () {
+        _this.getWXIMG();
+      });
+    }
+  };
+
+
+  $('.sign-up').each(function (index, item) {
+    new RegDialog().initReg($(item));
+  });
+}();

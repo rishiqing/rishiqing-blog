@@ -4,8 +4,8 @@
 rootPath='D:/workspace/webpage/';
 themePath='./content/themes/test-zh/';
 
-sourceJsPath='dist/blog/js/';
-sourceCssPath='dist/blog/css/';
+sourceJsPath='dist/js/';
+sourceCssPath='dist/css/';
 
 distJsPath='assets/js/';
 distCssPath='assets/css/';
