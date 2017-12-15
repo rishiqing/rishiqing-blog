@@ -1,11 +1,12 @@
 #! /bin/bash
+# 这个脚本38行目前语法有问题，暂时先用手动拷贝的方法吧。
 # 用于将官网项目的公用css文件复制过来
-#rootPath='d:/nginx-1.6.0/html/webpage/';
+# rootPath代表你电脑webpage工程的地址;
 rootPath='D:/workspace/webpage/';
 themePath='./content/themes/test-zh/';
-
-sourceJsPath='dist/js/';
-sourceCssPath='dist/css/';
+# sourceJsPath是要拷贝的地址，应该是待hash值的，deploy/static/js
+sourceJsPath='deploy/static/js/';
+sourceCssPath='deploy/static/css/';
 
 distJsPath='assets/js/';
 distCssPath='assets/css/';
@@ -34,8 +35,8 @@ copyCss () {
 
 copyJs () {
   # doCopy "${sourceJsPath}${jsFile[]}" "${distJsPath}${file}";
-  doCopy "${sourceJsPath}lib.js" "${distJsPath}${file}";
-  doCopy "${sourceJsPath}login.js" "${distJsPath}${file}";
+  doCopy "${sourceJsPath}lib-*.js" "${distJsPath}${file}";
+  doCopy "${sourceJsPath}login-*.js" "${distJsPath}${file}";
 
   # for file in $jsFile; do
   #   doCopy "${sourceJsPath}${file}" "${distJsPath}${file}";
