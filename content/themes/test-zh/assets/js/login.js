@@ -1,4 +1,3 @@
-window.isDev = true;
 /**
  * Created by zjy on 2015/5/6.
  * edit By wangLei on 2016/8/24.
